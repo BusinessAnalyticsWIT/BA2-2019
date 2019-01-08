@@ -115,14 +115,10 @@ body
   <header class="header item">
     <i id="toc" class="sitemap icon"></i>
     <a href="../index.html">
-      Frequency distributions in Python
+      Python, Anaconda, Data Exploration
     </a>
   </header>
   <div class="right tab-menu menu">
-    
-    <a class="item" data-tab="00">
-      00
-    </a>
     
     <a class="item" data-tab="Lab-01">
       Lab-01
@@ -148,8 +144,8 @@ body
       05
     </a>
     
-    <a class="item" data-tab="Exercises">
-      Exercises
+    <a class="item" data-tab="06">
+      06
     </a>
     
     <div class="item">
@@ -163,7 +159,7 @@ body
     
       
         <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
-          00
+          Lab-01
         </a>
       
     
@@ -232,7 +228,15 @@ body
     <div class="ui basic segment" id="labchat">
       <br>
       
-      <div  class="ui tab segment lab" data-tab="00">
+      <div  class="ui tab segment lab" data-tab="Lab-01">
+        <h1>Introduction to Python</h1>
+<p>Python is an interpreted, object-oriented, high level programming language. Python&#39;s simple, easy to learn syntax emphasises readability. It supports packages and modules with several specifically designed for data analysis.</p>
+<h1>Credits</h1>
+<p>This uses Coursera data management and visualisation course, by Wesleyan university</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
         <h1>Datacamp Python course</h1>
 <p>DataCamp offer many free online courses for learning data analysis. To start with the basics skills of the programming language Python you will start the Python course offered on DataCamp. Signup and login to begin the course. This module does not expect you to have this completed, it is simply a good starting point to pick up the basic skills to help with this module. You will be provided with the code you need to complete the lab work. However for the assignment it would be a good idea to improve your python skills beyond what the labs provide.</p>
 <p><a href="https://www.datacamp.com/learn-python-with-anaconda">https://www.datacamp.com/learn-python-with-anaconda</a></p>
@@ -244,15 +248,7 @@ Here is a good quick reference guide for python:</p>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="Lab-01">
-        <h1>Introduction to Python</h1>
-<p>Python is an interpreted, object-oriented, high level programming language. Python&#39;s simple, easy to learn syntax emphasises readability. It supports packages and modules with several specifically designed for data analysis.</p>
-<h1>Credits</h1>
-<p>This uses Coursera data management and visualisation course, by Wesleyan university</p>
-
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="01">
+      <div  class="ui tab segment lab" data-tab="02">
         <h1>Introduction to Python using Spyder</h1>
 <p>Python is a programming language, and you&#39;ll be writing your Python code in the programming environment called Spyder. The Anaconda distribution simplifies the installation process by including Python, Spyder, and other packages and tools in one installation.</p>
 <p><img src="./img/01.png" alt=""></p>
@@ -301,7 +297,7 @@ Here is a good quick reference guide for python:</p>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="02">
+      <div  class="ui tab segment lab" data-tab="03">
         <h1>Getting to know Spyder</h1>
 <p>You will write your programs and run them inside the Spyder IDE.</p>
 <p><img src="./img/06.png" alt=""></p>
@@ -327,7 +323,7 @@ If you accidently close a window or change the layout, you can revert to the def
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="03">
+      <div  class="ui tab segment lab" data-tab="04">
         <h1>Editing</h1>
 <p>The first task is to set your working directory. This is done by clicking on the folder icon in the top right corner above the object inspector.</p>
 <p><img src="./img/09.png" alt=""></p>
@@ -378,7 +374,7 @@ print (len(nesarc_data.columns)) # number of variables (columns)</code></pre>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="04">
+      <div  class="ui tab segment lab" data-tab="05">
         <h1>Frequency distribution</h1>
 <p>I&#39;m interested in looking at the association between how much a person smokes, that is the quantity and frequency of smoking, and the presence or absence of nicotine dependence.</p>
 <p>To investigate this we need to look in detail at the code book for the nesarc data set.</p>
@@ -417,7 +413,7 @@ print (p1)</code></pre>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="05">
+      <div  class="ui tab segment lab" data-tab="06">
         <h1>Frequencies</h1>
 <p>Your code from the previous step should look like this:</p>
 <pre><code>
@@ -489,12 +485,6 @@ nesarc_data.columns = map(str.lower, nesarc_data.columns)</code></pre>
 pandas.set_option(&#39;display.float_format&#39;,lambda x:&#39;%f&#39;%x)</code></pre>
 <p>Pandas documentation is available online for you to investigate futher options and settings for all the functions we use.</p>
 <p><a href="http://pandas.pydata.org/pandas-docs/version/0.20/api.html">http://pandas.pydata.org/pandas-docs/version/0.20/api.html</a></p>
-
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="Exercises">
-        <h1>Exercises</h1>
-<p>Apply what you have learned in this lab to your continuous assessment.</p>
 
       </div>
      
