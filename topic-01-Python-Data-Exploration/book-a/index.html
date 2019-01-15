@@ -194,7 +194,7 @@ Here is a good quick reference guide for python:</p>
 <p><img src="./img/01.png" alt=""></p>
 <h2>Installing Anaconda</h2>
 <ul>
-<li>Go to <a href="http://continuum.io/downloads">http://continuum.io/downloads</a></li>
+<li>Go to <a href="http://anaconda.com/download">http://anaconda.com/download</a></li>
 <li>Scroll down to find your operating system</li>
 </ul>
 <p><img src="./img/02.png" alt=""></p>
@@ -403,7 +403,7 @@ print(pt1)</code></pre>
 <p>Commonly a variable name may be mistyped and this error shows in the console as KeyError: &#39;S3Ac3B1&#39;</p>
 <p><img src="./img/16.png" alt=""></p>
 <p>If you do find errors then go back to your program and correct the errors, save the code and run again.</p>
-<p>Our variables names are a bit cryptic and thus we might want our print statements to be a bit more interpretable. The print function in our code is just asking for the text strings, we can chance them to read however we would like. We can see that we added additional information as headers for each variable.</p>
+<p>Our variables names are a bit cryptic and thus we might want our print statements to be a bit more interpretable. The print function in our code is just asking for the text strings, we can change them to read however we would like. We can see that we added additional information as headers for each variable.</p>
 <p>For variable TAB12MDX nicotine dependence in the past 12 months the code book tells us that one means yes and zero means no. We can see in our counts that we have 38,131 resondents that have no nicotine dependence, when we look at the percentages output that is  88.4% of the sample. While 4,962 or approximatley 11.5% of respondents do have a nicotine dependence.</p>
 <p><img src="./img/17.png" alt=""></p>
 <p>When you scroll down to usual quantity when smoked cigarettes, S3AQ3C1, you find the values are displayed in an incorrect order. This is happening because Python is reading the values as strings or objects rather than as numeric because it encountered empty cells when reading the column for that variable. To correct this, we can add a line of code to our program converting the variable to numeric before calling on the value_counts function.</p>
@@ -413,7 +413,7 @@ nesarc_data[&#39;S3AQ3C1&#39;] = pandas.to_numeric(nesarc_data[&#39;S3AQ3C1&#39;
 Add one of these lines for the S3AQ3C1 variable used in our program.
 Now set the sort option to True for each count and percentage then save and run your program. Each output should be displayed in order of the greatest count or percentage first going in descending order.</p>
 <h2>Tips</h2>
-<p>Remember the importance of comments in all programming. Python is no different. The # symbol is used to comment out text and it is good practice to add a line of commentry to sections of your code explaining what each section is doing. They help to keep try of decisions you have made and actions you take.</p>
+<p>Remember the importance of comments in all programming. Python is no different. The # symbol is used to comment out text and it is good practice to add a line of commentry to sections of your code explaining what each section is doing. They help to keep track of decisions you have made and actions you take.</p>
 <p>Remember to save each time you change your program.</p>
 <p>Add commentry to your code now. They should appear in grey in your program.</p>
 <p>It can be difficult to always type variable names in the correct case, some may be in upper case and others in lower case. Python is case sensitive so this can give your program unnecessary errors. You can use the map function to convert all variables in your dataframe to upper or lower case. Place this line of code just after you have loaded the data set.</p>
