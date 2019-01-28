@@ -402,6 +402,17 @@ c1= nesarc_data[&quot;NICOTINE_DEPENDENCE&quot;].value_counts(sort=True)
 print (c1)</code></pre>
 <p>You should now see the following if the renaming worked correctly:</p>
 <p><img src="./img/07.png" alt=""></p>
+<p>Next we want to only keep in our nesarc dataframe the 6 columns we are working on in this lab.</p>
+<pre><code>
+#Update the dataframe to only contain the columns you do want to use in your analysis.
+nesarc_data = pandas.DataFrame(nesarc_data, columns = nesarc_dict.values())
+print(&#39;new column amount: &#39; + str(len(nesarc_data.columns)))</code></pre>
+<p>This should show you an output of 6 for the number of columns.</p>
+<p>Some useful properties and functions you can use on your dataframe:</p>
+<pre><code>nesarc_data.head
+nesarc_data.tail
+nesarc_data[&#39;NICOTINE_DEPENDENCE&#39;].describe()
+nesarc_data.dtypes</code></pre>
 <p>Apply what you have learned in this lab to your continuous assessment.</p>
 
       </div>
