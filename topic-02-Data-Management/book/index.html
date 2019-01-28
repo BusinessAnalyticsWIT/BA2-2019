@@ -184,12 +184,12 @@ body
      
       <div  class="ui tab segment lab" data-tab="01">
         <h1>Solution</h1>
-<p>The solution python file for lab02 is available here</p>
+<p>The solution python file for lab01 is available here</p>
 <ul>
 <li><a href="./archives/lab01.py">lab1 python file</a></li>
 </ul>
 <p>If you did not get the lab finished copy the code and save it to your working directory and run it to make sure it works.</p>
-<p>As you learn more</p>
+<p>As you learn more keep applying it to your continuous assessment.</p>
 <h2>Selecting rows</h2>
 <p>Once you examine frequency distributions for your variables you need to decide whether you want to look at a subset of the data.</p>
 <p>For example so far we have conducted frequency distributions on the entire data set or sample so our question concerning the association between smoking and nicotine dependence has been applied to the full sample.</p>
@@ -358,6 +358,50 @@ subset2[&#39;USFREQMO&#39;] = subset2[&#39;S3AQ3B1&#39;].map(recode2)</code></pr
      
       <div  class="ui tab segment lab" data-tab="Exercises">
         <h1>Exercises</h1>
+<p>Further Data Management</p>
+<p>There are many ways to tidy up your dataframe.</p>
+<ul>
+<li>rename column names to readable names.</li>
+<li>remove any columns you are not using.</li>
+<li>print out a count the number of columns and rows.</li>
+</ul>
+<h2>Rename column names to readable names</h2>
+<p>Create a new python file, name it lab2Ex.py</p>
+<p>Import pandas and numpy.</p>
+<p>Just after the import statements we will list the columns that we want to use, to do this we create a dictionary to refer to when we rename and ultimately remove any other columns.</p>
+<p>A dictionary are indexed by keys, which can be any immutable type. It is best to think of a dictionary as a set of key:value pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary {}.</p>
+<p>Placing a comma-separated list of key:value pairs within the braces adds initial key:value pairs to the new dictionary as seen below:</p>
+<pre><code>
+# SETUP
+#Columns that will be read from the CSV file and give them names that make sense
+nesarc_dict =  {
+  &#39;TAB12MDX&#39;: &#39;NICOTINE_DEPENDENCE&#39;,
+  &#39;CHECK321&#39; : &#39;SMOKING_STATUS&#39;,
+   &#39;S3AQ3B1&#39; : &#39;FREQUENCY_OF_SMOKING&#39;,
+   &#39;S3AQ3C1&#39; : &#39;QUANTITY_SMOKED&#39;,
+   &#39;S2AQ3&#39;: &#39;DRANK_ALCOHOL&#39;,
+   &#39;S2AQ8A&#39; : &#39;ALCOHOL_FREQUENCY&#39;
+}</code></pre>
+<p>Next we need to read in the data from the csv filter</p>
+<pre><code>#LOAD DATA
+nesarc_data = pandas.read_csv(
+  &#39;nesarc_pds.csv&#39;,
+  low_memory=False
+)</code></pre>
+<p>Now we can rename the columns using the dictionary to map the old name to the new name.</p>
+<p>We use a pandas function rename with the columns option as seen below:</p>
+<pre><code># RENAME COLUMNS
+print(&#39;data read, performing rename operation&#39;)
+nesarc_data.rename(columns=nesarc_dict, inplace=True)
+print(&#39;data fetched&#39;)
+
+#TEST THE RENAMING
+nesarc_data.columns
+print(&#39;counts for TAB12MDX - nicotine dependence in the past 12 months, yes=1&#39;)
+c1= nesarc_data[&quot;NICOTINE_DEPENDENCE&quot;].value_counts(sort=True)
+print (c1)</code></pre>
+<p>You should now see the following if the renaming worked correctly:</p>
+<p><img src="./img/07.png" alt=""></p>
 <p>Apply what you have learned in this lab to your continuous assessment.</p>
 
       </div>
