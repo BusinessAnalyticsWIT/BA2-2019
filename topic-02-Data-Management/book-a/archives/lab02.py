@@ -11,6 +11,9 @@ import numpy
 #load dataset from the csv file in the dataframe called nesarc_data
 nesarc_data = pandas.read_csv('nesarc_pds.csv',low_memory=False)
 
+#convert spaces to NAN
+nesarc_data['CHECK321']=nesarc_data['CHECK321'].replace(' ', numpy.nan)
+
 #converting strings to numeric data for better output
 
 nesarc_data['TAB12MDX'] = pandas.to_numeric(nesarc_data['TAB12MDX'],errors='ignore')
@@ -18,9 +21,9 @@ nesarc_data['CHECK321'] = pandas.to_numeric(nesarc_data['CHECK321'],errors='igno
 nesarc_data['S3AQ3B1'] = pandas.to_numeric(nesarc_data['S3AQ3B1'], errors='ignore')
 nesarc_data['S3AQ3C1'] = pandas.to_numeric(nesarc_data['S3AQ3C1'], errors='ignore')
 
-#step 1
 # restrict to those observations that are between 18 and 25 and smoke now
-subset1 = nesarc_data[(nesarc_data['AGE']>=18) & (nesarc_data['AGE']<=25) & (nesarc_data['CHECK321']=='1')]
+subset1 = nesarc_data[(nesarc_data['AGE']>=18) & (nesarc_data['AGE']<=25) & (nesarc_data['CHECK321']==1)]
+
 
 print('counts for AGE ')
 c1= subset1['AGE'].value_counts(sort=True)
