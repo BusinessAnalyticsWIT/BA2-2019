@@ -1,175 +1,129 @@
- <!DOCTYPE html>
- <html>
-   <head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     
-
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
-
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-     <script>hljs.initHighlightingOnLoad();</script>
-
-     
-
-     <style>
-       
-
-body 
-{
+body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
 }
 
-figcaption
-{
-  margin-bottom: 20px;
+p {
+  margin: 0.5em;
 }
 
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
-}
-
-
-
-     </style>
-
-   </head>
-
-  <body>
-    
-
-<style>
-  
-
-code
-{
+pre code {
   font-family: "Monaco";
-  font-size: 110%;
+  font-size: 100%;
 }
 
-img
-{
-  padding:1px;
-  border:1px solid black;
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
 }
 
-h1
-{
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
   font-style:italic;
   font-size:130%;
-  border-bottom:thin solid black;
 }
 
-h2
-{
+h2 {
   font-size:110%;
-  border-bottom: thin solid black;
 }
 
-h3
-{
+h3 {
   font-size:100%;
-  border-bottom: thin solid black;
 }
 
-body
-{
-  overflow-y: scroll;
-}
 
-.pushable > .pusher
-{
-  padding-bottom: 1.5rem;
-}
 
-.ui.segment.pushable
-{
+      
+
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
 }
 
 
 
-</style>
+    </style>
+  </head>
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    <a href="../index.html">
-      Data Management
-    </a>
-  </header>
-  <div class="right tab-menu menu">
-    
-    <a class="item" data-tab="Lab-02">
-      Lab-02
-    </a>
-    
-    <a class="item" data-tab="01">
-      01
-    </a>
-    
-    <a class="item" data-tab="02">
-      02
-    </a>
-    
-    <a class="item" data-tab="03">
-      03
-    </a>
-    
-    <a class="item" data-tab="04">
-      04
-    </a>
-    
-    <a class="item" data-tab="Exercises">
-      Exercises
-    </a>
-    
-    <div class="item">
-      
-    </div>
-  </div>
-</div>
+  
+  
 
-<div class="ui segment pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
       
-        <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
-          Lab-01
-        </a>
+        <a href="../index.html"> Data Management  </a>
       
-    
+    </header>
+    <div class="right tab-menu menu">
       
-        <a class="item" href="../../topic-02-Data-Management/book/index.html">
+        <a class="item" data-tab="Lab-02">
           Lab-02
         </a>
       
-    
-      
-        <a class="item" href="../../topic-02-Data-Management/book-a/index.html">
-          Lab-03
+        <a class="item" data-tab="01">
+          01
         </a>
       
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+<<<<<<< HEAD
     
       
         <a class="item" href="../../topic-03-Visualisation/book/index.html">
@@ -189,19 +143,77 @@ body
         </a>
       
     
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment" id="labchat">
-      <br>
+=======
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
       
-      <div  class="ui tab segment lab" data-tab="Lab-02">
-        <h1>Refining your research question by selecting rows</h1>
+    </div>
+>>>>>>> 97acfa12a4ebdd7243a94110f09139f2e54307a4
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-ca/index.html">Lab-7 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-02">
+            <h1>Refining your research question by selecting rows</h1>
 <p>Refining research questions is essential in order to focus your analysis and discover the answer to a specific well thought out research question.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="01">
-        <h1>Solution</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Solution</h1>
 <p>The solution python file for lab01 is available here</p>
 <ul>
 <li><a href="./archives/lab01.py">lab1 python file</a></li>
@@ -252,10 +264,10 @@ Sometimes if you want to do comparisons on a variable in the copy the data conve
 print(len(subset2))</code></pre>
 <p><img src="./img/05.png" alt=""></p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="02">
-        <h1>Data Management</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Data Management</h1>
 <p>Data Management involves making decisions about recording data in ways that help to answer our research questions.</p>
 <p>The code book and frequency distributions often are the first port of call for helping to make these decisions. You will use both of these tools often because they reveal things about the data that will be helpful to you.</p>
 <p><a href="./archives/NESARC_codebook.pdf">nesarc codebook</a></p>
@@ -294,10 +306,10 @@ c8= subset2[&#39;S3AQ3B1&#39;].value_counts(sort=True, dropna=False)
 print (c8)</code></pre>
 <p>You should see that the 3 values that were originally 9 are now Nan.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="03">
-        <h1>Data management</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Data management</h1>
 <p>Next consider another variable, S3AQ3C1 which holds values for the usual smoking quantity.</p>
 <p>Look up the codebook for this variable. It is a value of between 1 and 98. A value of 99 indicates an unknown response. It is this value that we want to deal with, we want to set it to missing since it doesn&#39;t measure the number of cigarettes smoked, but rather indicates that we have no information on cigarette use for individuals coded as 99.</p>
 <p>Complete the same steps as you did for S3AQ3B1.</p>
@@ -341,10 +353,10 @@ print(subset2[&#39;S2AQ8A&#39;].isnull().sum())</code></pre>
 subset2.loc[(subset2[&#39;S2AQ3&#39;]!=9) &amp; (subset2[&#39;S2AQ8A&#39;].isnull()),&#39;S2AQ8A&#39;]=11</code></pre>
 <p>print out the counts now for the complete variable to double check that you now have 180 observations for the value 11.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="04">
-        <h1>Recoding responses</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Recoding responses</h1>
 <p>Another useful step in data management is to give your variables response codes that may be more logical than those they were originally given. For example, the variable usual smoking frequency S3AQ3B1 shows in the code book that lower values mean more smoking, and higher values means the respondents smoked less.</p>
 <p>This coding sounds counterintuitive. We could choose to reverse code this variable so that higher values means more smoking, and lower values mean less smoking.</p>
 <p>First we build a dictionary that recodes each value:</p>
@@ -372,10 +384,10 @@ subset2[&#39;USFREQMO&#39;] = subset2[&#39;S3AQ3B1&#39;].map(recode2)</code></pr
 <p>Print out the counts for each of the three variable to double check the frequencies are correct for S3AQ3B1, USFREQ, and USFREQMO</p>
 <p>So this makes more sense, while it is a categorical value, we&#39;re actually getting more information out of it than we had originally been given.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="Exercises">
-        <h1>Exercises</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
 <p>Further Data Management</p>
 <p>There are many ways to tidy up your dataframe.</p>
 <ul>
@@ -433,25 +445,16 @@ nesarc_data[&#39;NICOTINE_DEPENDENCE&#39;].describe()
 nesarc_data.dtypes</code></pre>
 <p>Apply what you have learned in this lab to your continuous assessment.</p>
 
+          </div>
+        
       </div>
-     
     </div>
   </div>
-</div>
-<!--<div class="ui bottom fixed borderless right menu">
-  <div class="ui right tiny menu">
-    <div class="ui mini message segment">
-      .
-      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
-         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-         target="_blank">Creative Commons License
-      </a>
-    </div>
-  </div>
-</div>-->
 
-<script>
-  $(document).on('keydown', function(e) {
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -471,15 +474,7 @@ nesarc_data.dtypes</code></pre>
   }
 });
 
-</script>
-
-
-
-    <footer>
-
-    </footer>
-    <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -512,7 +507,18 @@ nesarc_data.dtypes</code></pre>
     .sidebar('attach events', '#toc');
 });
 
-    </script>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
   </body>
 
- </html>
+</html>

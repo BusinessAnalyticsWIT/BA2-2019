@@ -1,110 +1,425 @@
- <!DOCTYPE html>
- <html>
-   <head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      
 
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     
-
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
-
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-     <script>hljs.initHighlightingOnLoad();</script>
-
-     
-
-     <style>
-       
-
-body 
-{
-  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
-}
-
-figcaption
-{
-  margin-bottom: 20px;
-}
-
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
 }
 
 
 
-     </style>
-
-   </head>
-
-  <body>
-    
-
-
-  <header class="ui center aligned middle aligned stackable grid segment">
-
-    
-      
-  <a class="ui blue left corner label">
-    <div id="showTOC" class="popup" data-content="Reveal TOC">
-      <i id="toc" class="sitemap big  icon"></i>
-    </div>
-  </a>
-
-    
-
-    <div class="ui five wide column">
-      <h2> Business Analytics II </h2>
-    </div>
-
-    <div class="ui two wide column">
-      
+    </style>
+  </head>
+  <body class="uk-background-muted">
+    <div class="wrapper">
+      <div class="content">
+        <div style="height:1000px;">
           
-  <div class="two wide column sitemap">
-    <div class="popup" data-content="To the top level Topics for this Module...">
-      <a href="index.html"> <i class="huge home icon"></i> <br> Module Home </a>
-    </div>
-  </div>
-
-      
-    </div>
-
-    <div class="ui five wide column">
-      
-  <div class="four wide column">
-    <div class="ui center aligned mini message segment">
-      Dr. Brenda Mullally (bmullally@wit.ie).
-      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
-         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-         target="_blank">Creative Commons License
-      </a>
-    </div>
-  </div>
-
-    </div>
-
-    <div class="three wide column">
-      
+  
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
         
-  <div class="ui equal width center aligned grid segment">
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-00-Module-Structure/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Module Structure 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-00-Module-Structure/talk-1/module-structure.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+module-structure
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Python, Anaconda, Data Exploration 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/talk-1/tools-languages.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Tools and languages 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/talk-2/Exploratory-data-analysis.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Exploratory Data analysis 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/talk-3-ca/CA_2018.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Continuous assessment 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-01
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Data Management 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/talk-1-data-management/Data-management.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Data-management
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/talk-2-data-management/Data-management.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Data Management II 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-02
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-03
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Refining your research question 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/talk-1/Visualisations_1.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Data Visualisation using Python Libraries 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/talk-2/Visualisations_2.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Seaborn library 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/talk-3/seaborn_cheatsheet.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Seaborn cheatsheet 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-04
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-05
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-ca/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-7
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-padding-small" uk-grid>
+    
+  <div class="uk-padding">
+    <a href="#offcanvas-usage" uk-toggle title="Table of Contents" pos="bottom" uk-tooltip>
+      
+  <i class="fas fa-bars fa-3x" style="color:"> </i>
+
+    </a>
+  </div>
+
+    
+  <div class="uk-width-1-2@m  uk-card uk-card-default uk-padding-small">
+    <div uk-grid>
+      <div class="uk-width-1-5@m">
+        
+          
+  
+    <i class=" fa-4x" style="color:"></i>
+  
+
+        
+      </div>
+      <div class="uk-width-expand@m uk-text-left">
+        <h2> Business Analytics II  </h2>
+        <div class="uk-text-muted uk-text-small">
+          
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-padding">
+    
+  </div>
+
+    
+  
+    
+  
+
     
       
+
+  
+    <div class="uk-card uk-card-default uk-padding-small">
+      <ul class="uk-iconnav">
+        
+          
+  
+    
+      
+<<<<<<< HEAD
         <div class="column">
           <div class="popup" data-content="All talk's in Course">
             <a href="talkwall.html"> <i class="big object group icon"></i> </a>
@@ -113,9 +428,20 @@ figcaption
             </div>
           </div>
         </div>
+=======
+>>>>>>> 97acfa12a4ebdd7243a94110f09139f2e54307a4
       
+  <li>
+    <a href="./talkwall.html" title="All slides's in module" pos="bottom" uk-tooltip> 
+  <i class="fas fa-object-group fa-2x" style="color:#009688"> </i>
+ </a>
+  </li>
+
+    
+  
     
       
+<<<<<<< HEAD
         <div class="column">
           <div class="popup" data-content="All lab's in Course">
             <a href="labwall.html"> <i class="big lab icon"></i> </a>
@@ -124,100 +450,163 @@ figcaption
             </div>
           </div>
         </div>
+=======
+>>>>>>> 97acfa12a4ebdd7243a94110f09139f2e54307a4
       
+  <li>
+    <a href="./labwall.html" title="All labs's in module" pos="bottom" uk-tooltip> 
+  <i class="fas fa-flask fa-2x" style="color:#00BCD4"> </i>
+ </a>
+  </li>
+
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+        
+        
+      </ul>
+    </div>
+  
+
+    
+    
+  
+
+  </div>
+
+
+  <div class="uk-container uk-padding-small">
+    
+  
+
+    
+  
+
+    
+  
+
+  </div>
+  
+  <div class="uk-container uk-padding-small">
+    <div class="uk-child-width-1-4@s uk-flex uk-flex-center" uk-grid uk-height-match="target: > div > .uk-card">
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
     
       
-    
       
     
-      
+    <a href=./topic-00-Module-Structure/index.html>
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> Module Structure </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-00-Module-Structure/talk-1/module-structure.png">
     
   </div>
 
-      
+    
+  
+    </a>
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Details on the breakdown of continuous assessment over the 12 weeks.</p>
+</p>
     </div>
+  
+
+    
+  
+
+  </div>
 
 
-  </header>
+
+          
+        </div>
+      
+        <div>
+          
+            
+
   
   
 
+  <div class="uk-card uk-card-default 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+    
+      
+      
+    
+    <a href=./topic-01-Python-Data-Exploration/index.html>
+  
 
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> Python, Anaconda, Data Exploration </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
 
-<div class="ui segment pushable">
-  <div class="ui inverted inline vertical sidebar menu">
+        
+      </div>
+    </div>
+  </div>
+
     
-    <div class="header">
-      <a class="item" href="topic-00-Module-Structure/index.html">
-        Module Structure
-      </a>
-    </div>
-    <div class="menu">
-      
-      <div class="menu">
-        <a class="item" href="topic-00-Module-Structure/talk-1/module-structure.pdf">
-          module-structure</a>
-      </div>
-      
-    </div>
+  <div class="uk-card-body">
     
-    <div class="header">
-      <a class="item" href="topic-01-Python-Data-Exploration/index.html">
-        Python, Anaconda, Data Exploration
-      </a>
-    </div>
-    <div class="menu">
-      
-      <div class="menu">
-        <a class="item" href="topic-01-Python-Data-Exploration/talk-1/tools-languages.pdf">
-          Tools and languages</a>
-      </div>
-      
-      <div class="menu">
-        <a class="item" href="topic-01-Python-Data-Exploration/talk-2/Exploratory-data-analysis.pdf">
-          Exploratory Data analysis</a>
-      </div>
-      
-      <div class="menu">
-        <a class="item" href="topic-01-Python-Data-Exploration/talk-3-ca/CA_2018.pdf">
-          Continuous assessment</a>
-      </div>
-      
-      <div class="menu">
-        <a class="item" href="topic-01-Python-Data-Exploration/book-a/index.html">
-          Lab-01</a>
-      </div>
-      
-    </div>
-    
-    <div class="header">
-      <a class="item" href="topic-02-Data-Management/index.html">
-        Data Management
-      </a>
-    </div>
-    <div class="menu">
-      
-      <div class="menu">
-        <a class="item" href="topic-02-Data-Management/talk-1-data-management/Data-management.pdf">
-          Data-management</a>
-      </div>
-      
-      <div class="menu">
-        <a class="item" href="topic-02-Data-Management/talk-2-data-management/Data-management.pdf">
-          Data Management II</a>
-      </div>
-      
-      <div class="menu">
-        <a class="item" href="topic-02-Data-Management/book/index.html">
-          Lab-02</a>
-      </div>
-      
-      <div class="menu">
-        <a class="item" href="topic-02-Data-Management/book-a/index.html">
-          Lab-03</a>
-      </div>
-      
-    </div>
+      <img src="./topic-01-Python-Data-Exploration/talk-1/tools-languages.png">
     
     <div class="header">
       <a class="item" href="topic-03-Visualisation/index.html">
@@ -259,91 +648,161 @@ figcaption
     </div>
     
   </div>
-  <div class="pusher">
-    <div class="ui container">
-      <div class="ui basic segment">
-        <div class="ui centered four doubling stackable cards">
+
+    
+  
+    </a>
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Introduction to Python and the Anaconda IDE, and running frequency distributions using Python language.</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
           
             
 
   
-    <a class="ui raised link card" href="topic-00-Module-Structure/index.html">
   
 
-      <div class="center aligned content">
-        <div class="right floated meta"><i class="huge sitemap icon"></i></div>
-        <div class="header"> Module Structure</div>
-      </div>
-
-      <div class="image">
-        <img class="ui bordered rounded image" src="topic-00-Module-Structure/talk-1/module-structure.png">
-      </div>
-
-      <div class="center aligned content">
-        <div class="description">
-          <p>Details on the breakdown of continuous assessment over the 12 weeks.</p>
-
-        </div>
-      </div>
-
+  <div class="uk-card uk-card-default 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+    
       
+      
+    
+    <a href=./topic-02-Data-Management/index.html>
+  
 
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> Data Management </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-02-Data-Management/talk-1-data-management/Data-management.png">
+    
+  </div>
+
+    
+  
     </a>
+  
+
+    
+  
+
+    
+  
+
+    
+  
+
+  </div>
 
 
+
+          
+        </div>
+      
+        <div>
           
             
 
   
-    <a class="ui raised link card" href="topic-01-Python-Data-Exploration/index.html">
   
 
-      <div class="center aligned content">
-        <div class="right floated meta"><i class="huge sitemap icon"></i></div>
-        <div class="header"> Python, Anaconda, Data Exploration</div>
-      </div>
-
-      <div class="image">
-        <img class="ui bordered rounded image" src="topic-01-Python-Data-Exploration/talk-1/tools-languages.png">
-      </div>
-
-      <div class="center aligned content">
-        <div class="description">
-          <p>Introduction to Python and the Anaconda IDE, and running frequency distributions using Python language.</p>
-
-        </div>
-      </div>
-
+  <div class="uk-card uk-card-default 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+    
       
-
-    </a>
-
-
-          
-            
-
-  
-    <a class="ui raised link card" href="topic-02-Data-Management/index.html">
-  
-
-      <div class="center aligned content">
-        <div class="right floated meta"><i class="huge sitemap icon"></i></div>
-        <div class="header"> Data Management</div>
-      </div>
-
-      <div class="image">
-        <img class="ui bordered rounded image" src="topic-02-Data-Management/talk-1-data-management/Data-management.png">
-      </div>
-
-      <div class="center aligned content">
-        <div class="description">
-          
-        </div>
-      </div>
-
       
+    
+    <a href=./topic-03-Visualisation/index.html>
+  
 
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> Refining your research question </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-03-Visualisation/talk-1/Visualisations_1.png">
+    
+  </div>
+
+    
+  
     </a>
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <h1>Refining your research question</h1>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
 
 
           
@@ -376,50 +835,17 @@ figcaption
 
           
         </div>
-      </div>
+      
     </div>
   </div>
-</div>
 
 
-    <footer>
-
-    </footer>
-    <script>
-      $(document).ready(function() {
-  $('img').addClass('ui image');
-
-  $('.ui.embed').embed();
-
-  const $images = $('.lab img');
-  jQuery.each($images, function(i) {
-    if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass(
-        'ui basic segment',
-      );
-      $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass(
-        'ui blue ribbon label',
-      );
-      divLabel.append($images[i].alt);
-      $(divLabel).insertBefore($images[i]);
-    }
-  });
-
-  $('.ui.menu .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
-
-  $('.popup').popup();
-
-  $('.ui.sidebar')
-    .sidebar({ context: $('.pushable') })
-    .sidebar('setting', 'transition', 'slide out')
-    .sidebar('attach events', '#toc');
-});
-
-    </script>
+        </div>
+      </div>
+      <div class="footer uk-text-small uk-text-right uk-text-muted"> Powered by <a
+          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
+        
+      </div>
+    </div>
   </body>
-
- </html>
+</html>
