@@ -1,133 +1,175 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-          rel="stylesheet"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <style>
-      
+ <!DOCTYPE html>
+ <html>
+   <head>
 
-body {
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
-  font-size:90%;
-  color: black;
 }
 
-p {
-  margin: 0.5em;
+figcaption
+{
+  margin-bottom: 20px;
 }
 
-pre code {
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
   font-family: "Monaco";
-  font-size: 100%;
+  font-size: 110%;
 }
 
-img {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin:10px;
+img
+{
+  padding:1px;
+  border:1px solid black;
 }
 
-h1, h2, h3 {
-  border-bottom:thin solid black;
-  margin-bottom: 0.5em;
-  margin-top: 1em;
-}
-
-h1 {
+h1
+{
   font-style:italic;
   font-size:130%;
+  border-bottom:thin solid black;
 }
 
-h2 {
+h2
+{
   font-size:110%;
+  border-bottom: thin solid black;
 }
 
-h3 {
+h3
+{
   font-size:100%;
+  border-bottom: thin solid black;
 }
 
+body
+{
+  overflow-y: scroll;
+}
 
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
 
-      
-
-html, body {
-  height: 100%;
+.ui.segment.pushable
+{
   margin: 0;
-}
-.wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.footer {
-  background: white;
-  text-align: right;
-}
-.content {
-  flex: 1;
-  overflow: auto;
+  padding: 1rem 0;
+  overflow: visible;
 }
 
 
 
-    </style>
-  </head>
+</style>
 
-  
-  
-
-  <div class="ui fixed top pointing inverted stackable menu labmenu">
-    <header class="header item">
-      <i id="toc" class="sitemap icon"></i>
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      Data Management
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-03">
+      Lab-03
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
       
-        <a href="../index.html"> Data Management  </a>
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
       
-    </header>
-    <div class="right tab-menu menu">
+        <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
+          Lab-01
+        </a>
       
-        <a class="item" data-tab="Lab-03">
+    
+      
+        <a class="item" href="../../topic-02-Data-Management/book/index.html">
+          Lab-02
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-Data-Management/book-a/index.html">
           Lab-03
         </a>
       
-        <a class="item" data-tab="01">
-          01
-        </a>
-      
-        <a class="item" data-tab="02">
-          02
-        </a>
-      
-        <a class="item" data-tab="03">
-          03
-        </a>
-      
-        <a class="item" data-tab="04">
-          04
-        </a>
-      
-        <a class="item" data-tab="Exercises">
-          Exercises
-        </a>
-      
-<<<<<<< HEAD
     
       
         <a class="item" href="../../topic-03-Visualisation/book/index.html">
@@ -147,73 +189,19 @@ html, body {
         </a>
       
     
-=======
-    </div>
->>>>>>> 97acfa12a4ebdd7243a94110f09139f2e54307a4
   </div>
-
-
-  
-
-  <div class="ui pushable">
-    <div class="ui inverted labeled icon left inline vertical sidebar menu">
-      <br><br>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
       
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
-          
-        
-      
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
-          
-        
-      
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
-          
-        
-      
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
-          
-        
-      
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
-          
-        
-      
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-ca/index.html">Lab-7 </a>
-          
-        
-      
-    </div>
-    <div class="pusher" tabindex="-1">
-      <div class="ui basic segment">
-        <br>
-        
-          <div class="ui tab segment lab" data-tab="Lab-03">
-            <h1>Creating Secondary Variables</h1>
+      <div  class="ui tab segment lab" data-tab="Lab-03">
+        <h1>Creating Secondary Variables</h1>
 <p>An important step in the data preparation stage of analytics includes the creation of new data, usually in the form of additional variables.</p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="01">
-            <h1>Solution</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Solution</h1>
 <p>The solution python files for lab02 are available here</p>
 <ul>
 <li><a href="./archives/lab02.py">lab2 python file</a></li>
@@ -249,10 +237,10 @@ subset3.head(25)</code></pre>
 <p>You can do a quick scan to ensure the operation was correct by multiplying the third column of data with the fourth to produce the last column of data.</p>
 <p>What you see in the above screenshot are the individual observations and the estimated number of cigarettes smoked in a month. This is a useful way to double check our work and make sure no errors have occurred.</p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="02">
-            <h1>Secondary Variables</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Secondary Variables</h1>
 <p>What if we want to combine more than two variables?</p>
 <p>For this task we are going to use the Add Health data.</p>
 <ul>
@@ -294,10 +282,10 @@ data[&#39;NUMETHNIC&#39;] = data[&#39;H1GI4&#39;] + data[&#39;H1GI6A&#39;] + dat
 <p>Write the appropriate code to print out the following:</p>
 <p><img src="./img/01.png" alt=""></p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="03">
-            <h1>Secondary variables</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Secondary variables</h1>
 <p>Next we add statements that create a single secondary variable that characterizes each adolescents ethnicity.</p>
 <p>We use the Define function shown here as def to create a new variable called ETHNICITY</p>
 <p>Read the appropriate section in the code book to familiarise yourself with variables H1GI4, H1GI6A, H1GI6B, H1GI6C, and H1GI6D. These are used to code the new variable ETHNICITY.</p>
@@ -334,17 +322,10 @@ data[&#39;ETHNICITY&#39;] = data.apply(lambda row: ETHNICITY (row), axis=1)</cod
 <pre><code>pandas.set_option(&#39;display.max_columns&#39;,20);</code></pre>
 <p>This sets the maximum columns displayed to 20.</p>
 
-<<<<<<< HEAD
       </div>
      
       <div  class="ui tab segment lab" data-tab="04">
         <h1>Recoding responses</h1>
-=======
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="04">
-            <h1>Recoding responses</h1>
->>>>>>> 97acfa12a4ebdd7243a94110f09139f2e54307a4
 <p>Once you have created secondary variables such as USFREQMO and NUMCIGMO_EST you can then consider whether any of your quantitative variables or categorical variables need to be further grouped or binned.</p>
 <p>Currently AGE is a quantitative variable in the NESARC dataset, if we want to compare age groups categorically we need to group the values.</p>
 <p>The first way we can group the values is by quartiles, remember these represent 25, 50, 75 and 100% of the dataset.</p>
@@ -371,22 +352,31 @@ print(pandas.crosstab(subset2[&#39;AGEGROUP2&#39;],subset2[&#39;AGE&#39;]))</cod
 <p><img src="./img/05.png" alt=""></p>
 <p>Write a statement to output the value counts as percentages for the agegroup2 variable.</p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="Exercises">
-            <h1>Exercises</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
 <p>Apply what you have learned in this lab to your continuous assessment.</p>
 
-          </div>
-        
       </div>
+     
     </div>
   </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
 
-
-  <br>
-  <script>
-    $(document).on('keydown', function(e) {
+<script>
+  $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -406,7 +396,15 @@ print(pandas.crosstab(subset2[&#39;AGEGROUP2&#39;],subset2[&#39;AGE&#39;]))</cod
   }
 });
 
-    $(document).ready(function() {
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -439,18 +437,7 @@ print(pandas.crosstab(subset2[&#39;AGEGROUP2&#39;],subset2[&#39;AGE&#39;]))</cod
     .sidebar('attach events', '#toc');
 });
 
-  </script>
-
-
-
-  <div class="ui bottom fixed borderless right menu">
-    <div class="ui right small menu">
-      <div class="ui tiny basic message segment">
-         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
-      </div>
-    </div>
-  </div>
-
+    </script>
   </body>
 
-</html>
+ </html>
