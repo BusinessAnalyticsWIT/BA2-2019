@@ -171,6 +171,24 @@ body
         </a>
       
     
+      
+        <a class="item" href="../../topic-03-Visualisation/book/index.html">
+          Lab-04
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-Visualisation/book-a/index.html">
+          Lab-05
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-Visualisation/book-ca/index.html">
+          Lab-7
+        </a>
+      
+    
   </div>
   <div class="pusher" tabindex="-1">
     <div class="ui basic segment" id="labchat">
@@ -190,6 +208,17 @@ body
 <li><a href="./archives/lab02Ex.py">lab2 including exercises</a></li>
 </ul>
 <p>Save lab02.py to your working directory and run it to make sure it works.</p>
+<h2>Pandas Tutorials</h2>
+<p>If you are confused about the use of Pandas and in particular the DataFrame structure, take a look at the following site for help:</p>
+<ul>
+<li><a href="https://medium.com/dunder-data/pandas-tutorials/home">https://medium.com/dunder-data/pandas-tutorials/home</a></li>
+</ul>
+<p>The series data structure in Pandas is a 1-dimensional array to hold any datatype for example:</p>
+<pre><code>
+pd.series(5, 6, 7, 4, 5)</code></pre>
+<p>We have used this when we created a dictionary for recoding in step 4 of lab 2.</p>
+<pre><code>recode1= {1: 6, 2: 5, 3: 4, 4: 3, 5: 2, 6: 1}</code></pre>
+<p>The dataframe data structure in Pandas is a 2-dimensional array with columns of potentially different types. We think of it like a spreadsheet.</p>
 <h2>Managing Data: Creating Secondary Variables</h2>
 <p>One of the later steps in data management is evaluating whether you might want to create secondary variables. They are variables that include information from two or more primary variables.</p>
 <p>We can create secondary variables by using a mathematical or logical operation on two or more variables.</p>
@@ -289,6 +318,9 @@ data[&#39;ETHNICITY&#39;] = data.apply(lambda row: ETHNICITY (row), axis=1)</cod
 </ul>
 <p>Consider what you have learned and attempt to write the necessary code to print out the counts for each of these variables including the AID variable and NUMETHNIC and ETHNICITY so you can see the following first 25 rows. Use a subset of the data which just contains the variables you need.</p>
 <p><img src="./img/02.png" alt=""></p>
+<p>If you can not see all columns you can set the following option to expand the visible columns:</p>
+<pre><code>pandas.set_option(&#39;display.max_columns&#39;,20);</code></pre>
+<p>This sets the maximum columns displayed to 20.</p>
 
       </div>
      

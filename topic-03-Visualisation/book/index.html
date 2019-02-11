@@ -1,0 +1,509 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      Refining your research question
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-04">
+      Lab-04
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
+          Lab-01
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-Data-Management/book/index.html">
+          Lab-02
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-Data-Management/book-a/index.html">
+          Lab-03
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-Visualisation/book/index.html">
+          Lab-04
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-Visualisation/book-a/index.html">
+          Lab-05
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-Visualisation/book-ca/index.html">
+          Lab-7
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-04">
+        <h1>Graphing individual variables</h1>
+<p>The solution to lab03 is available here:</p>
+<ul>
+<li><p><a href="./archives/lab03.py">lab3 python file</a></p>
+</li>
+<li><p><a href="./archives/lab3_step2.py">lab3 step 2 python file</a></p>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Descriptive Statistics</h1>
+<p>The first task is to write the code necessary to run frequency distributions for each of these variables, including both counts and percentages. You have done this previously using the value_counts function.</p>
+<ul>
+<li>write this code now.</li>
+</ul>
+<p>Also of interest would be the mean, median and standard deviation for both variables.</p>
+<ul>
+<li>write this code now.</li>
+</ul>
+<p><img src="./img/06.png" alt=""></p>
+<p>You also write individual code commands for each statistical measure:</p>
+<pre><code>
+print(&#39;mean&#39;)
+mean1 = subset2[&#39;NUMCIGMO_EST&#39;].mean()
+print(mean1)
+
+print(&#39;std deviation&#39;)
+std1 = subset2[&#39;NUMCIGMO_EST&#39;].std()
+print(std1)
+
+print(&#39;min&#39;)
+min1 = subset2[&#39;NUMCIGMO_EST&#39;].min()
+print(min1)
+
+print(&#39;max&#39;)
+max1 = subset2[&#39;NUMCIGMO_EST&#39;].max()
+print(max1)
+
+print(&#39;median&#39;)
+median1 = subset2[&#39;NUMCIGMO_EST&#39;].median()
+print(median1)
+
+print(&#39;mode&#39;)
+mode1 = subset2[&#39;NUMCIGMO_EST&#39;].mode()
+print(mode1)</code></pre>
+<p>N.B. in the output from this code you should note that the count is 1,697 rather than the 1706. This is because Python does not include those cases with missing or NaN data in these calculations.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Univariate graphing</h1>
+<p>You will begin by graphing one variable at a time and then multiple variables within the graphs.</p>
+<p>Bar charts are most commonly used to examine the distribution of individual variables.</p>
+<p><img src="./img/00.png" alt=""></p>
+<p>This bar chart shows the distribution for the random sample of 1,200 college students who are asked, what is your perception of your body?</p>
+<p>In this chart X or the horizontal axis includes the three response categories: underweight, overweight, and about right.</p>
+<p>The height of each bar is measured on the Y or vertical axis, as the number or count of college students giving each response.</p>
+<p>This next bar chart shows the same data but as a percentage of the total sample.</p>
+<p><img src="./img/01.png" alt=""></p>
+<p>The data we are going to visualise is from the NESARC data set. Variable TAB12MDX, representing diagnosis of nicotine dependence in the past 12 months. Along with the secondary variable you created in lab6 NUMCIGMO_EST, representing an estimate of the average number of cigarettes smoked per month.</p>
+<h2>In order to visualise in Python we need to import additional libraries into our program.</h2>
+<pre><code>
+import seaborn
+import matplotlib.pyplot as plot</code></pre>
+<p>Python code will generate the graphs that help us learn more about the data and to make decisions about next steps in our research.
+The focus to start with is basic visualisations rather than polished, presentation ready graphs.</p>
+<p>Categorical variables can be visualised one at a time using univariate graphs, that is with single variable bar charts.</p>
+<p>So that categorical variables are ordered properly on the horizontal X axis, you must convert your categorical variables which are often formatted as numerical variables into a format Python recognises as categorical.</p>
+<pre><code>
+subset2[&#39;TAB12MDX&#39;] = subset2[&#39;TAB12MDX&#39;].astype(&#39;category&#39;)</code></pre>
+<p>The astype function converts TAB12MDX to a categorical variable, keeping the original name as is.</p>
+<p>The basic code for a univariate graph of a categorical variable is as follows:</p>
+<pre><code>
+seaborn.countplot(x=&#39;TAB12MDX&#39;,data=subset2)
+plt.xlabel(&#39;Nicotine Dependence past 12 months&#39;)
+plt.title(&#39;Nicotine Dependence in the past 12 months among young adult smokers in the Nesarc study&#39;)</code></pre>
+<p>The countplot function we name the categorical variable for the X axis and define the data frame, which in our case is subset2.
+With the xlabel function we can label the X axis and with the title function we provide the bar chart with a title.</p>
+<p>Save and run this code.</p>
+<p><img src="./img/02.png" alt=""></p>
+<p>This bar chart show the 896 young adult smokers with nicotine dependence, as indicated by a response code of 1, and the 810 without nicotine dependence, indicated by a 0.</p>
+<h2>Univariate Histogram for quantitative variable:</h2>
+<p>The estimated number of cigarettes smoked per month is the variable NUMCIGMO_EST. This is a quantitative variable so the syntax we use is different.</p>
+<pre><code>
+seaborn.distplot(subset2[&#39;NUMCIGMO_EST&#39;].dropna(),kde=False)
+plt.xlabel(&#39;Number of cigarettes per month&#39;)
+plt.title(&#39;Estimated number of cigarettes per month among young adult smokers in the Nesarc study&#39;)</code></pre>
+<p>With the distribution plot function or distplot we name the quantitative variable for the X axis.</p>
+<h2>Exercises:</h2>
+<p>Write the code necessary to group the NUMCIGMO_EST variable into bins and count the frequency within each bin.</p>
+<p><img src="./img/04.png" alt=""></p>
+<p>Next plot the new categorical variable  on a bar chart as below:</p>
+<p><img src="./img/05.png" alt=""></p>
+<p>What do you think happens if you use the describe() function on the categorical variable TAB12MDX? Try it and see what the output is.</p>
+<p>You will notice that charts that are produced &quot;inline&quot; in the iPython console window. It can be beneficial to set the charts to open in a separate window. Go to tools-preferences-ipython console- Graphics and set the Graphics backend to Automatic. Then restart the kernel by pressing Ctrl + . when in the console. When you run your code the graph will show in a separate window.</p>
+<p>There seems to be an issue though with multiple graphs that each one overlays the previous. So for your CA I would therefore run each seaborn.countplot() separately and save each graph as an image to place in your CA report.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Graphing categorical response variables</h1>
+<p>Our research question is Does the number of cigarettes smoked per month determine Nicotine Dependence?</p>
+<ul>
+<li>The first question to ask is what type is the response variable?</li>
+</ul>
+<p>Is it Categorical or Numerical?</p>
+<p>In this case the response or dependent variable is Nicotine Dependence which is categorical.</p>
+<p>Next we need to determine how many categories are in this response variable.</p>
+<p>Nicotine Dependence is coded 1 for yes, 0 for no, we have two categories.</p>
+<ul>
+<li>The next question is what type is the explanatory variable?</li>
+</ul>
+<p>The explanatory variable is the number of cigarettes smoked per month (NUMCIGMO_EST), this is a quantitative variable.</p>
+<p>Placing a quantitative explanatory variable on the Y axis is not visually meaningful where our response variable is categorical (X axis). We would prefer to have categorical on the Y axis.</p>
+<p>Therefore we must bin our explanatory variable into groups in order to visualise the relationship we are interested in. This requires some data management that will allow us to construct a categorical to categorical bar chart.</p>
+<p>By default the Pandas library displays an abbreviated list of rows and columns from our data frame. We can add additional set option statements following the library import statement that requests a display of the max number of rows and columns.</p>
+<pre><code>
+#set PANDAS to show all columns in Data frame
+pandas.set_option(&#39;display.max_columns&#39;, None)
+
+#set PANDAS to show all rows in Data frame
+pandas.set_option(&#39;display.max_rows&#39;, None)</code></pre>
+<p>Having viewed the full output for NUMCIGMO_EST we can use the cut function to group individuals in various ways. For example into quartiles or into custom groups.</p>
+<p>In this case it makes sense to group based on quantities. Cigarette packs contain 20 cigarettes each. We can create a new variable that estimates the number of packs that each individual smokes per month, rather than the number of cigarettes.</p>
+<p>The new variable is called PACKSPERMONTH and is equal to the variable NUMCIGMO_EST  divided by 20.</p>
+<pre><code>
+
+subset2[&#39;PACKSPERMONTH&#39;] = subset2[&#39;NUMCIGMO_EST&#39;] / 20
+
+c5 = subset2.groupby(&#39;PACKSPERMONTH&#39;).size()
+print(c5)</code></pre>
+<p><img src="./img/07.png" alt=""></p>
+<p>Packs per month is still a quantitative variable, but now we can more easily create groups based on number of packs smoked in a month.</p>
+<p>After examining the frequency distribution, we will create groups that include those who&#39;ve smoked 1-5 packs per month, 11-20, 21-30 and 30+ packs per month.</p>
+<pre><code>
+subset2[&#39;PACKCATEGORY&#39;] = pandas.cut(subset2.PACKSPERMONTH, [0,5,10,20,30,147])
+
+#change format of variable from numerical to Categorical
+subset2[&#39;PACKCATEGORY&#39;] = subset2[&#39;PACKCATEGORY&#39;].astype(&#39;category&#39;)
+
+print(&#39;describe nicotine dependence&#39;)
+desc3 = subset2.groupby(&#39;PACKCATEGORY&#39;).size()
+print(desc3)</code></pre>
+<p>Now we can make a category to category bar chart.</p>
+<pre><code>
+#bivariate bar chart
+seaborn.factorplot(x=&#39;PACKCATEGORY&#39;,y=&#39;TAB12MDX&#39;,data=subset2, kind=&#39;bar&#39;,ci=None)
+plt.xlabel(&#39;Packs per month&#39;)
+plt.ylabel(&#39;Proportion Nicotine Dependence&#39;)</code></pre>
+<p><img src="./img/08.png" alt=""></p>
+<p>Take a look at this chart and see if you understand the Nicotine Dependence variable.</p>
+<p>In this case we know the response variable (TAB12MDX) is categorical, the factorplot function by default calculates the mean where the response variable (Y axis) is categorical. this means it shows the proportion of individuals with nicotine dependence. This is because our variable stores either 1 or 0 so if all the 1&#39;s are added up and divided by the count then it gives the proportion. We know that Python will not calculate a mean if a variable is set to category. We need to change the TAB12MDX to be numeric. This needs to be done prior to creating the bar chart. (you may already have a conversion written in your code from an earlier lab, if not here is the code below:)</p>
+<pre><code>
+subset2[&#39;TAB12MDX&#39;] = pandas.to_numeric(subset2[&#39;TAB12MDX&#39;],errors=&#39;ignore&#39;)</code></pre>
+<p>If we interpret the chart we can see that those individuals who smoke 1-5 packs a month only 25% of them are nicotine dependent. It is clear from the bar chart that the greater the number of packs smoked per month the higher the percentage of individuals that are classed as nicotine dependent.</p>
+<p>A relationship may exist between smoking and nicotine dependence as hypothesized.</p>
+<p>N.B if our explanatory variable (PACKSPERMONTH) was already categorical we could of skipped the step to cut() and created the factorplot.</p>
+<p>If the response variable had more than two categories what would we need to do? We would need to collapse it into two categories. This is done in the next step.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Bivariate graph with response variable containing more than 2 categories.</h1>
+<p>If we modify our research question to look at the association between ethnicity and smoking stage.</p>
+<p>We will create a response variable that categorises young adult smokers into three groups, Non-daily smokers, Daily smokers, and those with Nicotine Dependence.</p>
+<p>In the code book the variable ETHRACE2A shows the categories and frequencies.</p>
+<p><img src="./img/10.png" alt=""></p>
+<p>To create the new variable called SMOKEGRP we will enter the following code:</p>
+<pre><code>
+def SMOKEGRP (row):
+  if row[&#39;TAB12MDX&#39;] == 1:
+    return 1
+  elif row[&#39;USFREQMO&#39;] == 30:
+    return 2
+  else
+    return 3
+
+subset2[&#39;SMOKEGRP&#39;] = subset2.apply(lambda row: SMOKEGRP (row), axis=1)</code></pre>
+<p>The SMOKEGRP variable will hold 1 if the individual is nicotine dependent, 2 if they are a daily smoker and 3 for all other young adult smokers.</p>
+<p>It is important to consider what categories you need to define and in what order to define them.</p>
+<p>Lets see the percentage for each category:</p>
+<pre><code>
+c8=subset2[&#39;SMOKEGRP&#39;].value_counts(normalize=True)
+print(c8)</code></pre>
+<p>Now create a univariate bar chart for this new variable.</p>
+<p><img src="./img/11.png" alt=""></p>
+<p>Now to investigate this variable with another we need to collapse it into two categories.</p>
+<p>Two perfectly reasonable options are:</p>
+<p>Examine the association between ethnicity and daily versus non-daily smokers.</p>
+<p>Or</p>
+<p>Examine the association between ethnicity and nicotine dependent versus non-nicotine dependent individuals.</p>
+<p>In either case, data management has to occur first.</p>
+<p>To collapse the variable into daily and non-daily smokers we use the following:</p>
+<pre><code>
+def DAILY (row):
+  if row[&#39;USFREQMO&#39;] == 30:
+    return 1
+  elif row[&#39;USFREQMO&#39;] != 30:
+    return 0
+
+subset2[&#39;DAILY&#39;] = subset2.apply(lambda row: DAILY (row), axis=1)
+
+c7= subset2.groupby(&#39;DAILY&#39;).size()
+print(c7)</code></pre>
+<p>This shows us that 1320 young adult are daily smokers and 386 are not daily smokers.</p>
+<p>Now we can graph the relationship between our categorical explanatory variable ETHRACE2A and this new response categorical variable DAILY.</p>
+<p>Remember our categorical response variable cannot have more than two categories or levels. Those categories should be coded as zero or one. Zero representing negative and one representing yes or positive. In this format the mean calculated for the y axis gives us the proportion of the positive observations.</p>
+<pre><code>
+seaborn.factorplot(x=&#39;ETHRACE2A&#39;, y=&#39;DAILY&#39;, data=subset2, kind=&#39;bar&#39;, ci=None)
+plt.xlabel(&#39;Ethnic Group&#39;)
+plt.ylabel(&#39;Proportion Daily Smokers&#39;)</code></pre>
+<p><img src="./img/12.png" alt=""></p>
+<p>Notice that the categories (1,2,3,4,5) are not ordered on the X axis, and because they are not labeled it is harder to interpret the bar chart.</p>
+<p>We can rename categorical variable values for graphing, first by changing then format to categorical if you haven&#39;t already done so. Second by giving the variable ETHRACE2A new value labels using cat.rename_categories()</p>
+<pre><code>
+subset2[&#39;ETHRACE2A&#39;] = subset2[&#39;ETHRACE2A&#39;].astype(&#39;category&#39;)
+
+subset2[&#39;ETHRACE2A&#39;] = subset2[&#39;ETHRACE2A&#39;].cat.rename_categories([&#39;White&#39;,&#39;Black&#39;,&#39;NatAm&#39;,&#39;Asian,&#39;Hispanic&#39;])</code></pre>
+<p><img src="./img/13.png" alt=""></p>
+<p>We can see that the proportion of smokers for Native American&#39;s and Hispanic&#39;s is somewhat lower than other Ethnic races.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>continuous assessment</h1>
+<p>Apply what you have learned to your continuous assessment work.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
