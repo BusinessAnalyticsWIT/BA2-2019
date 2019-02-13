@@ -49,7 +49,6 @@ recode2 = {1: 30, 2: 22, 3: 14, 4: 5, 5: 2.5, 6: 1}
 
 subset2['USFREQMO'] = subset2['S3AQ3B1'].map(recode2)
 
-#lab6 step 1 add a variable
 #make sure S2AQ3C1 is a number
 subset2['S3AQ3C1']=pandas.to_numeric(subset2['S3AQ3C1'])
 
@@ -64,8 +63,8 @@ subset3=subset2[['IDNUM','S3AQ3C1','USFREQMO', 'NUMCIGMO_EST']]
 #display only the first 25 rows of data in the new subset
 subset3.head(25)
 
-#LAB 07 GRAPHING
-
+#LAB 04 
+#step 1
 #counts for TAB12MDX
 print('count of TAB12MDX')
 c1 = subset2.groupby('TAB12MDX').size()
@@ -93,17 +92,19 @@ p2 = subset2.groupby('NUMCIGMO_EST').size() * 100 /len(nesarc_data)
 print(p2)
 
 
-#univariate graphing
+#lab 4 step 2 univariate graphing
+
+#categorical
 bc1 = seaborn.countplot(x='TAB12MDX',data=subset2)
 plt.xlabel('Nicotine Dependence past 12 months')
 plt.title('Nicotine Dependence in the past 12 months among young adult smokers in the Nesarc study')
 
-
-bc2 = seaborn.distplot(subset2['NUMCIGMO_EST'].dropna(),kde=False)
+#numerical
+bc2 = seaborn.distplot(subset2.NUMCIGMO_EST.dropna())
 plt.xlabel('Number of cigarettes per month')
 plt.title('Estimated number of cigarettes per month among young adult smokers in the Nesarc study')
 
-#step 2 Lab7
+#lab4 step 2 exercise
 #categorise variable based on customised splits using the cut() function
 # splits into 6 groups, 1-200, 200-400, 400-600, 600-800, 800-1000, 1000-4000
 print('Group the variable NUMCIGMO_EST into bins')
@@ -146,5 +147,70 @@ print(mode1)
 
 subset2['PACKSPERMONTH'] = subset2['NUMCIGMO_EST'] / 20
 
+
+print('describe nicotine dependence')
 c5 = subset2.groupby('PACKSPERMONTH').size()
 print(c5)
+
+subset2['PACKCATEGORY'] = pandas.cut(subset2.PACKSPERMONTH, [0,5,10,20,30,147])
+
+#change format of variable from numerical to categorical
+subset2['PACKCATEGORY'] =subset2['PACKCATEGORY'].astype('category')
+
+
+print('describe nicotine dependence')
+c6 = subset2.groupby('PACKCATEGORY').size()
+print(c6)
+ 
+#now chart using a categorical to categorical chart
+#bivariate bar chart
+seaborn.catplot(x='PACKCATEGORY',y='TAB12MDX',data=subset2,kind='bar',ci=None)
+plt.xlabel('Packs per month')
+plt.ylabel('Proportion Nicotine dependence')
+
+
+
+#Step 4 lab 4, smokegrp holds 1 if nicotine dependent, 2 for daily smoker, 3 all others
+def SMOKEGRP (row):
+  if row['TAB12MDX'] == 1:
+    return 1
+  elif row['USFREQMO'] == 30:
+    return 2
+  else:
+    return 3
+
+subset2['SMOKEGRP'] = subset2.apply(lambda row: SMOKEGRP (row), axis=1)
+
+c8=subset2['SMOKEGRP'].value_counts(normalize=True)
+print(c8)
+
+#univariate graph for smoke group
+bc3 = seaborn.countplot(x='SMOKEGRP', data=subset2)
+plt.xlabel('Smoking group, dependent, daily, other')
+plt.title('Number of observations for nicotine dependent, daily smokers and others')
+
+#collapse USFREQMO into daily and non daily smokers
+def DAILY (row):
+  if row['USFREQMO'] == 30:
+    return 1
+  elif row['USFREQMO'] != 30:
+    return 0
+
+subset2['DAILY'] = subset2.apply(lambda row: DAILY (row), axis=1)
+
+c7= subset2.groupby('DAILY').size()
+print(c7)
+
+subset2['ETHRACE2A'] = subset2['ETHRACE2A'].astype('category')
+
+subset2['ETHRACE2A'] = subset2['ETHRACE2A'].cat.rename_categories(['White','Black','NatAm','Asian','Hispanic'])
+
+
+#graph the relationship between categorical ETHRACE2A and new categorical DAILY
+
+seaborn.catplot(x='ETHRACE2A', y='DAILY', data=subset2, kind='bar', ci=None)
+plt.xlabel('Ethnic Group')
+plt.ylabel('Proportion Daily Smokers')
+
+c9= subset2.groupby(['DAILY','ETHRACE2A']).size()
+print(c7)
