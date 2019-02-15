@@ -116,6 +116,7 @@ body
     <i id="toc" class="sitemap icon"></i>
     <a href="../index.html">
       Data Management
+<<<<<<< HEAD
     </a>
   </header>
   <div class="right tab-menu menu">
@@ -446,4 +447,336 @@ print(pandas.crosstab(subset2[&#39;AGEGROUP2&#39;],subset2[&#39;AGE&#39;]))</cod
     </script>
   </body>
 
+=======
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-03">
+      Lab-03
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
+          Lab-01
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-Data-Management/book/index.html">
+          Lab-02
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-Data-Management/book-a/index.html">
+          Lab-03
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-Visualisation/book/index.html">
+          Lab-04
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-Visualisation/book-a/index.html">
+          Lab-05
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-Hypothesis-Testing/book/index.html">
+          Lab-06
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-Hypothesis-Testing/book-ca/index.html">
+          Lab-7
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-03">
+        <h1>Creating Secondary Variables</h1>
+<p>An important step in the data preparation stage of analytics includes the creation of new data, usually in the form of additional variables.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Solution</h1>
+<p>The solution python files for lab02 are available here</p>
+<ul>
+<li><a href="./archives/lab02.py">lab2 python file</a></li>
+<li><a href="./archives/lab02Ex.py">lab2 including exercises</a></li>
+</ul>
+<p>Save lab02.py to your working directory and run it to make sure it works.</p>
+<h2>Pandas Tutorials</h2>
+<p>If you are confused about the use of Pandas and in particular the DataFrame structure, take a look at the following site for help:</p>
+<ul>
+<li><a href="https://medium.com/dunder-data/pandas-tutorials/home">https://medium.com/dunder-data/pandas-tutorials/home</a></li>
+</ul>
+<p>The series data structure in Pandas is a 1-dimensional array to hold any datatype for example:</p>
+<pre><code>
+pd.series(5, 6, 7, 4, 5)</code></pre>
+<p>We have used this when we created a dictionary for recoding in step 4 of lab 2.</p>
+<pre><code>recode1= {1: 6, 2: 5, 3: 4, 4: 3, 5: 2, 6: 1}</code></pre>
+<p>The dataframe data structure in Pandas is a 2-dimensional array with columns of potentially different types. We think of it like a spreadsheet.</p>
+<h2>Managing Data: Creating Secondary Variables</h2>
+<p>One of the later steps in data management is evaluating whether you might want to create secondary variables. They are variables that include information from two or more primary variables.</p>
+<p>We can create secondary variables by using a mathematical or logical operation on two or more variables.</p>
+<p>For our set of data we want to know the number of cigarettes smoked per month. We created a new variable USFREQMO in the last lab which tells us an estimate of the number smoking days in a month for each respondent. If you look at the codebook the variable S3AQ3C1 holds values to answer the question of usual quantity per day.</p>
+<p>We can simply multiple these two variables and the result represents the number of cigarettes per month smoked by respondents. We can call this new variable NUMCIGNO_EST</p>
+<pre><code>
+subset2[&#39;NUMCIGMO_EST&#39;] = subset2[&#39;USFREQMO&#39;] * subset2[&#39;S3AQ3C1&#39;]</code></pre>
+<p>Sometimes an error will occur to say you cannot do this operation due to datatypes being incompatible. You may need to make sure the variable S3AQ3C1 is in fact a number, you can add this piece of code to ensure this and then re-run the code above.</p>
+<pre><code>subset2[&#39;S3AQ3C1&#39;]=pandas.to_numeric(subset2[&#39;S3AQ3C1&#39;])</code></pre>
+<p>How can we check to make sure this new secondary variable was created as intended?</p>
+<p>We will use a new statement that allows us to subset our data frame to only those variables we wish to see.</p>
+<pre><code>
+subset3=subset2[[&#39;IDNUM&#39;,&#39;S3AQ3C1&#39;,USFREQMO&#39;, &#39;NUMCIGMO_EST&#39;]]
+subset3.head(25)</code></pre>
+<p><img src="./img/00.png" alt=""></p>
+<p>You can do a quick scan to ensure the operation was correct by multiplying the third column of data with the fourth to produce the last column of data.</p>
+<p>What you see in the above screenshot are the individual observations and the estimated number of cigarettes smoked in a month. This is a useful way to double check our work and make sure no errors have occurred.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Secondary Variables</h1>
+<p>What if we want to combine more than two variables?</p>
+<p>For this task we are going to use the Add Health data.</p>
+<ul>
+<li><a href="./archives/AddHealth.zip">Add Health Data File</a></li>
+</ul>
+<p>Download this zip and extract the .csv file, store in the same directory as your python scripts (setup in lab1)</p>
+<p>Create a new file called lab3_step2.py and enter the following code:</p>
+<pre><code>
+import pandas
+import numpy
+
+data = pandas.read_csv(&#39;addhealth_pds.csv&#39;)</code></pre>
+<p>A good example of combining more than one variable is to create a secondary variable to characterise ethnicity from a number of separate primary variables in the Add Health data. In this data set race or ethnicity are measured by a series of questions, coded 1 if yes and 0 if no.</p>
+<p>Some respondents could&#39;ve indicated more than one race or ethnicity, we could decide to characterise those adolescents who indicate multiple racial or ethical groups separately from those who could be characterised with a single ethnicity.</p>
+<p>Open the codebook that was part of the zip file you downloaded. Open the pdf name INH01PUB.pdf and scroll to question 4. The variables are named here and the values with frequencies are listed.</p>
+<ul>
+<li>H1GI4</li>
+<li>H1GI6A</li>
+<li>H1GI6B</li>
+<li>H1GI6C</li>
+<li>H1GI6D</li>
+</ul>
+<p>The new variable to create will be called NUMETHNIC, it will indicate the number of race or ethnicity variables that were endorsed. To do this we must sum the variables, so we must ensure they are of numerical data type.</p>
+<pre><code>
+data[&#39;H1GI4&#39;] = pandas.to_numeric(data[&#39;H1GI4&#39;])
+data[&#39;H1GI6A&#39;] = pandas.to_numeric(data[&#39;H1GI6A&#39;])
+data[&#39;H1GI6B&#39;] = pandas.to_numeric(data[&#39;H1GI6B&#39;])
+data[&#39;H1GI6C&#39;] = pandas.to_numeric(data[&#39;H1GI6C&#39;])
+data[&#39;H1GI6D&#39;] = pandas.to_numeric(data[&#39;H1GI6D&#39;])</code></pre>
+<p>Refer back to the code book and you will see that each of these variables has a potential value of 6 which means refused to answer, and 8 which means don&#39;t know. We will need to deal with this missing data so it is no included in our sum operation.</p>
+<pre><code>data[&#39;H1GI4&#39;] = data[&#39;H1GI4&#39;].replace([6,8], numpy.nan)
+data[&#39;H1GI6A&#39;] = data[&#39;H1GI6A&#39;].replace([6,8], numpy.nan)
+data[&#39;H1GI6B&#39;] = data[&#39;H1GI6B&#39;].replace([6,8], numpy.nan)
+data[&#39;H1GI6C&#39;] = data[&#39;H1GI6C&#39;].replace([6,8], numpy.nan)
+data[&#39;H1GI6D&#39;] = data[&#39;H1GI6D&#39;].replace([6,8], numpy.nan)</code></pre>
+<p>The following code with sum each of the variables and place the results into the new variable called NUMETHNIC</p>
+<pre><code>
+data[&#39;NUMETHNIC&#39;] = data[&#39;H1GI4&#39;] + data[&#39;H1GI6A&#39;] + data[&#39;H1GI6B&#39;] + data[&#39;H1GI6C&#39;] + data[&#39;H1GI6D&#39;]</code></pre>
+<p>Write the appropriate code to print out the following:</p>
+<p><img src="./img/01.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Secondary variables</h1>
+<p>Next we add statements that create a single secondary variable that characterizes each adolescents ethnicity.</p>
+<p>We use the Define function shown here as def to create a new variable called ETHNICITY</p>
+<p>Read the appropriate section in the code book to familiarise yourself with variables H1GI4, H1GI6A, H1GI6B, H1GI6C, and H1GI6D. These are used to code the new variable ETHNICITY.</p>
+<pre><code>
+def ETHNICITY (row):
+    if row[&#39;NUMETHNIC&#39;]&gt;1:
+        return 1
+    if row[&#39;H1GI4&#39;] ==1:
+        return 2
+    if row[&#39;H1GI6A&#39;] ==1:
+        return 3
+    if row[&#39;H1GI6B&#39;] ==1:
+        return 4
+    if row[&#39;H1GI6C&#39;]==1:
+        return 5
+    if row[&#39;H1GI6D&#39;]==1:
+        return 6
+
+data[&#39;ETHNICITY&#39;] = data.apply(lambda row: ETHNICITY (row), axis=1)</code></pre>
+<p>The row code defines a temporary variable to be used in the function. Then we use the apply function to actually create the new variable in the dataset. Axis=1 tells Python to apply the function to each row.</p>
+<p>Note that the lambda operator/function is a way to create small anonymous functions (functions without a name). These functions are throwaways (like callback functions in JavaScript or PHP) That is, they are just needed where they are created. Lambda functions are commonly used in combination with the functions filter(), map(), and reduce().</p>
+<p>So if NUMETHNIC the new variable ETHNICITY will return 1 indicating multiple racial or ethnic groups chosen.</p>
+<p>All other codes then indicate a particular race for example:</p>
+<ul>
+<li>H1GI4 equals 1 then the ETHNICITY variable will return a value of 2 which means only Hispanic or Latino ethnicity was chosen.</li>
+<li>H1GI6A equals 1 then the ETHNICITY variable will return a value of 3 which means only Black or African-American ethnicity was chosen.</li>
+<li>H1GI6B equals 1 then the ETHNICITY variable will return a value of 4 which means only American Indian ethnicity was chosen.</li>
+<li>H1GI6C equals 1 then the ETHNICITY variable will return a value of 5 which means only Asian or Pacific Islander ethnicity was chosen.</li>
+<li>H1GI6D equals 1 then the ETHNICITY variable will return a value of 6 which means only White  was chosen.</li>
+</ul>
+<p>Consider what you have learned and attempt to write the necessary code to print out the counts for each of these variables including the AID variable and NUMETHNIC and ETHNICITY so you can see the following first 25 rows. Use a subset of the data which just contains the variables you need.</p>
+<p><img src="./img/02.png" alt=""></p>
+<p>If you can not see all columns you can set the following option to expand the visible columns:</p>
+<pre><code>pandas.set_option(&#39;display.max_columns&#39;,20);</code></pre>
+<p>This sets the maximum columns displayed to 20.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Recoding responses</h1>
+<p>Once you have created secondary variables such as USFREQMO and NUMCIGMO_EST you can then consider whether any of your quantitative variables or categorical variables need to be further grouped or binned.</p>
+<p>Currently AGE is a quantitative variable in the NESARC dataset, if we want to compare age groups categorically we need to group the values.</p>
+<p>The first way we can group the values is by quartiles, remember these represent 25, 50, 75 and 100% of the dataset.</p>
+<p>To do this we use the pandas.qcut() function passing as parameters the variable to be grouped, the number of quartiles and a list of variable names for each quartile.</p>
+<p>We call the new variable AGEGROUP</p>
+<pre><code>
+#Step 4 regroup values
+#quartile split qcut function into 4 groups
+print(&#39;AGE - 4 Categories - quartiles&#39;)
+subset2[&#39;AGEGROUP&#39;] = pandas.qcut(subset2.AGE, 4, labels=[&#39;1=25%tile&#39;,&#39;2=50%tile&#39;,&#39;3=75%tile&#39;,&#39;4=100%tile&#39;])
+c14= subset2[&#39;AGEGROUP&#39;].value_counts(sort=False, dropna=True)
+print(c14)</code></pre>
+<p><img src="./img/03.png" alt=""></p>
+<p>It is also an option to create custom splits using pandas cut function.</p>
+<pre><code>#categorise variable based on customised splits using the cut() functions
+# splits into three groups, 18-20, 21-22, and 23-25
+subset2[&#39;AGEGROUP2&#39;]= pandas.cut(subset2.AGE, [17, 20, 22, 25], labels=[&#39;18-20&#39;,&#39;21-22&#39;,&#39;23-25&#39;])
+c15 = subset2[&#39;AGEGROUP2&#39;].value_counts(sort=False, dropna=True)
+print(c15)</code></pre>
+<p><img src="./img/04.png" alt=""></p>
+<p>To compare the different groups of ages we can now run a crosstab on the agegroup2 variable</p>
+<pre><code>
+print(pandas.crosstab(subset2[&#39;AGEGROUP2&#39;],subset2[&#39;AGE&#39;]))</code></pre>
+<p><img src="./img/05.png" alt=""></p>
+<p>Write a statement to output the value counts as percentages for the agegroup2 variable.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Apply what you have learned in this lab to your continuous assessment.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+>>>>>>> 761e7414dc62f5f8727d67fb3d30591d91a469e8
  </html>
