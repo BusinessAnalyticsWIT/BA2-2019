@@ -1,216 +1,207 @@
- <!DOCTYPE html>
- <html>
-   <head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     
-
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
-
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-     <script>hljs.initHighlightingOnLoad();</script>
-
-     
-
-     <style>
-       
-
-body 
-{
+body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
 }
 
-figcaption
-{
-  margin-bottom: 20px;
+p {
+  margin: 0.5em;
 }
 
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
-}
-
-
-
-     </style>
-
-   </head>
-
-  <body>
-    
-
-<style>
-  
-
-code
-{
+pre code {
   font-family: "Monaco";
-  font-size: 110%;
+  font-size: 100%;
 }
 
-img
-{
-  padding:1px;
-  border:1px solid black;
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
 }
 
-h1
-{
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
   font-style:italic;
   font-size:130%;
-  border-bottom:thin solid black;
 }
 
-h2
-{
+h2 {
   font-size:110%;
-  border-bottom: thin solid black;
 }
 
-h3
-{
+h3 {
   font-size:100%;
-  border-bottom: thin solid black;
 }
 
-body
-{
-  overflow-y: scroll;
-}
 
-.pushable > .pusher
-{
-  padding-bottom: 1.5rem;
-}
 
-.ui.segment.pushable
-{
+      
+
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
 }
 
 
 
-</style>
+    </style>
+  </head>
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    <a href="../index.html">
-      Testing your hypothesis
-    </a>
-  </header>
-  <div class="right tab-menu menu">
-    
-    <a class="item" data-tab="Lab-06">
-      Lab-06
-    </a>
-    
-    <a class="item" data-tab="01">
-      01
-    </a>
-    
-    <a class="item" data-tab="02">
-      02
-    </a>
-    
-    <a class="item" data-tab="03">
-      03
-    </a>
-    
-    <a class="item" data-tab="Exercises">
-      Exercises
-    </a>
-    
-    <a class="item" data-tab=".">
-      .
-    </a>
-    
-    <div class="item">
-      
-    </div>
-  </div>
-</div>
+  
+  
 
-<div class="ui segment pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
       
-        <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
-          Lab-01
-        </a>
+        <a href="../index.html"> Testing your hypothesis  </a>
       
-    
+    </header>
+    <div class="right tab-menu menu">
       
-        <a class="item" href="../../topic-02-Data-Management/book/index.html">
-          Lab-02
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-02-Data-Management/book-a/index.html">
-          Lab-03
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-03-Visualisation/book/index.html">
-          Lab-04
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-03-Visualisation/book-a/index.html">
-          Lab-05
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-04-Hypothesis-Testing/book/index.html">
+        <a class="item" data-tab="Lab-06">
           Lab-06
         </a>
       
-    
-      
-        <a class="item" href="../../topic-04-Hypothesis-Testing/book-ca/index.html">
-          Lab-7
+        <a class="item" data-tab="01">
+          01
         </a>
       
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment" id="labchat">
-      <br>
+        <a class="item" data-tab="02">
+          02
+        </a>
       
-      <div  class="ui tab segment lab" data-tab="Lab-06">
-        <h1>Continuous Assessment</h1>
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab=".">
+          .
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book/index.html">Lab-06 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book-ca/index.html">Lab-07 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-06">
+            <h1>Continuous Assessment</h1>
 <p>The solution to lab05 is available here:</p>
 <ul>
 <li><a href="./archives/lab05.py">lab5 python file</a></li>
 </ul>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="01">
-        <h1>Choosing a statistical test</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Choosing a statistical test</h1>
 <p>You will always be interpreting p values, regardless of the inferential test that you use. The specific statistical test that you use to evaluate your hypothesis, will depend on the type of explanatory and response variables that you have chosen.</p>
 <h2>Bivariate Statistical Tools:</h2>
 <p>If you have a categorical explanatory variable, and a quantitative response variable, you use:
@@ -251,10 +242,10 @@ The F statistic circled in red is 46.60. We know this is the variability among m
 <p>So we can confidently reject the null hypothesis, frustration level means of the four majors are not all the same.</p>
 <p>Next you will test a hypothesis presented in the lecture.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="02">
-        <h1>Hypothesis testing</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Hypothesis testing</h1>
 <p>We are going to carry out hypothesis testing on the NESARC data.</p>
 <p>We want to evaluate if there is an association between a diagnosis of major depression and how much a person smokes.</p>
 <h2>Step 1 : stating the hypotheses</h2>
@@ -374,10 +365,10 @@ The parameters given to smf.ols are the quantitative variable NUMCIGMO_EST and t
 we can see the p-value is 0.022, obviously less that 0.05. this means that the probability that we would get a difference of this size when the null hypothesis is true is 2%. So in this case we can reject the null hypothesis, and say that young adults (18-26) smokers with depression smoke significantly more cigarettes per month than those without depression.</p>
 <p>We could also say that if we reject the null hypothesis and say there is a difference between the average smoked by those with and without depression , we would be wrong 2 out of 100 times. we would be correct 98% of the time, this is a level of certainty that gives us confidence in saying that there is a significant association between smoking and depression among current young adult smokers.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="03">
-        <h1>Explanatory variable with more than two values</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Explanatory variable with more than two values</h1>
 <p>If the categorical explanatory variable has more than two groups, we will look at the relationship between ethnicity and smoking quantity.</p>
 <p>What is the null hypothesis?
 What is the alternate hypothesis?</p>
@@ -426,10 +417,10 @@ A summary table of the comparisons are presented.</p>
 <p>So we can see that White ethnic group  is significantly different than Asian, Black and Hispanic.
 Looking again at the mean values, we can say that those indicating White ethnicity smoke significanlty more cigarettes per month than individuals indicating Black, Asian and Hispanic ethnicity.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="Exercises">
-        <h2>Exercises</h2>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h2>Exercises</h2>
 <p>Q1. A researcher who incorrectly rejects the null hypothesis commits which of the following kind of error?</p>
 <ul>
 <li>A systematic error</li>
@@ -460,35 +451,26 @@ You now have the skills to conduct cleaning, creating of secondary variables, de
 <p>Please remember to document in your report all of your work, comment your code and output clear print statements so the output is labeled etc.</p>
 <p>Next week&#39;s labs and lecture are for the continuous assessment.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab=".">
-        <h1>Answers:</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab=".">
+            <h1>Answers:</h1>
 <ul>
 <li>Q1. A type I error</li>
 <li>Q2. A significant F statistic evaluating the association between three different diets and body weight following a 10 week study</li>
 <li>Q3. The three groups do not all come from populations with the same mean, although it is not clear which population means are different</li>
 </ul>
 
+          </div>
+        
       </div>
-     
     </div>
   </div>
-</div>
-<!--<div class="ui bottom fixed borderless right menu">
-  <div class="ui right tiny menu">
-    <div class="ui mini message segment">
-      .
-      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
-         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-         target="_blank">Creative Commons License
-      </a>
-    </div>
-  </div>
-</div>-->
 
-<script>
-  $(document).on('keydown', function(e) {
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -508,15 +490,7 @@ You now have the skills to conduct cleaning, creating of secondary variables, de
   }
 });
 
-</script>
-
-
-
-    <footer>
-
-    </footer>
-    <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -549,7 +523,18 @@ You now have the skills to conduct cleaning, creating of secondary variables, de
     .sidebar('attach events', '#toc');
 });
 
-    </script>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
   </body>
 
- </html>
+</html>
