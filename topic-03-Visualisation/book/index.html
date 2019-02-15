@@ -115,7 +115,7 @@ body
   <header class="header item">
     <i id="toc" class="sitemap icon"></i>
     <a href="../index.html">
-      Refining your research question
+      Visualisation of Data
     </a>
   </header>
   <div class="right tab-menu menu">
@@ -184,7 +184,13 @@ body
       
     
       
-        <a class="item" href="../../topic-03-Visualisation/book-ca/index.html">
+        <a class="item" href="../../topic-04-Hypothesis-Testing/book/index.html">
+          Lab-06
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-Hypothesis-Testing/book-ca/index.html">
           Lab-7
         </a>
       
@@ -208,7 +214,7 @@ body
      
       <div  class="ui tab segment lab" data-tab="01">
         <h1>Descriptive Statistics</h1>
-<p>The first task is to write the code necessary to run frequency distributions for each of these variables, including both counts and percentages. You have done this previously using the value_counts function.</p>
+<p>The first task is to write the code necessary to run frequency distributions for each of variables TAB12MDX and NUMCIGMO_EST, including both counts and percentages. You have done this previously using the value_counts function.</p>
 <ul>
 <li>write this code now.</li>
 </ul>
@@ -217,7 +223,7 @@ body
 <li>write this code now.</li>
 </ul>
 <p><img src="./img/06.png" alt=""></p>
-<p>You also write individual code commands for each statistical measure:</p>
+<p>You also write individual code commands for each statistical measure as shown below:</p>
 <pre><code>
 print(&#39;mean&#39;)
 mean1 = subset2[&#39;NUMCIGMO_EST&#39;].mean()
@@ -298,7 +304,8 @@ plt.title(&#39;Estimated number of cigarettes per month among young adult smoker
      
       <div  class="ui tab segment lab" data-tab="03">
         <h1>Graphing categorical response variables</h1>
-<p>Our research question is Does the number of cigarettes smoked per month determine Nicotine Dependence?</p>
+<p>Our research question is:</p>
+<h2>Does the number of cigarettes smoked per month determine Nicotine Dependence?</h2>
 <ul>
 <li>The first question to ask is what type is the response variable?</li>
 </ul>
@@ -343,12 +350,12 @@ print(desc3)</code></pre>
 <p>Now we can make a category to category bar chart.</p>
 <pre><code>
 #bivariate bar chart
-seaborn.factorplot(x=&#39;PACKCATEGORY&#39;,y=&#39;TAB12MDX&#39;,data=subset2, kind=&#39;bar&#39;,ci=None)
+seaborn.catplot(x=&#39;PACKCATEGORY&#39;,y=&#39;TAB12MDX&#39;,data=subset2, kind=&#39;bar&#39;,ci=None)
 plt.xlabel(&#39;Packs per month&#39;)
 plt.ylabel(&#39;Proportion Nicotine Dependence&#39;)</code></pre>
 <p><img src="./img/08.png" alt=""></p>
 <p>Take a look at this chart and see if you understand the Nicotine Dependence variable.</p>
-<p>In this case we know the response variable (TAB12MDX) is categorical, the factorplot function by default calculates the mean where the response variable (Y axis) is categorical. this means it shows the proportion of individuals with nicotine dependence. This is because our variable stores either 1 or 0 so if all the 1&#39;s are added up and divided by the count then it gives the proportion. We know that Python will not calculate a mean if a variable is set to category. We need to change the TAB12MDX to be numeric. This needs to be done prior to creating the bar chart. (you may already have a conversion written in your code from an earlier lab, if not here is the code below:)</p>
+<p>In this case we know the response variable (TAB12MDX) is categorical, the catplot function by default calculates the mean where the response variable (Y axis) is categorical. this means it shows the proportion of individuals with nicotine dependence. This is because our variable stores either 1 or 0 so if all the 1&#39;s are added up and divided by the count then it gives the proportion. We know that Python will not calculate a mean if a variable is set to category. It is necessary to change the TAB12MDX to be numeric. This needs to be done prior to creating the bar chart. (you may already have a conversion written in your code from an earlier lab, if not here is the code below:)</p>
 <pre><code>
 subset2[&#39;TAB12MDX&#39;] = pandas.to_numeric(subset2[&#39;TAB12MDX&#39;],errors=&#39;ignore&#39;)</code></pre>
 <p>If we interpret the chart we can see that those individuals who smoke 1-5 packs a month only 25% of them are nicotine dependent. It is clear from the bar chart that the greater the number of packs smoked per month the higher the percentage of individuals that are classed as nicotine dependent.</p>
@@ -371,7 +378,7 @@ def SMOKEGRP (row):
     return 1
   elif row[&#39;USFREQMO&#39;] == 30:
     return 2
-  else
+  else:
     return 3
 
 subset2[&#39;SMOKEGRP&#39;] = subset2.apply(lambda row: SMOKEGRP (row), axis=1)</code></pre>
@@ -405,18 +412,22 @@ print(c7)</code></pre>
 <p>Now we can graph the relationship between our categorical explanatory variable ETHRACE2A and this new response categorical variable DAILY.</p>
 <p>Remember our categorical response variable cannot have more than two categories or levels. Those categories should be coded as zero or one. Zero representing negative and one representing yes or positive. In this format the mean calculated for the y axis gives us the proportion of the positive observations.</p>
 <pre><code>
-seaborn.factorplot(x=&#39;ETHRACE2A&#39;, y=&#39;DAILY&#39;, data=subset2, kind=&#39;bar&#39;, ci=None)
+seaborn.catplot(x=&#39;ETHRACE2A&#39;, y=&#39;DAILY&#39;, data=subset2, kind=&#39;bar&#39;, ci=None)
 plt.xlabel(&#39;Ethnic Group&#39;)
 plt.ylabel(&#39;Proportion Daily Smokers&#39;)</code></pre>
 <p><img src="./img/12.png" alt=""></p>
 <p>Notice that the categories (1,2,3,4,5) are not ordered on the X axis, and because they are not labeled it is harder to interpret the bar chart.</p>
-<p>We can rename categorical variable values for graphing, first by changing then format to categorical if you haven&#39;t already done so. Second by giving the variable ETHRACE2A new value labels using cat.rename_categories()</p>
+<p>We can rename categorical variable values for graphing, first by changing their format to categorical if you haven&#39;t already done so. Second by giving the variable ETHRACE2A new value labels using cat.rename_categories()</p>
 <pre><code>
 subset2[&#39;ETHRACE2A&#39;] = subset2[&#39;ETHRACE2A&#39;].astype(&#39;category&#39;)
 
-subset2[&#39;ETHRACE2A&#39;] = subset2[&#39;ETHRACE2A&#39;].cat.rename_categories([&#39;White&#39;,&#39;Black&#39;,&#39;NatAm&#39;,&#39;Asian,&#39;Hispanic&#39;])</code></pre>
+subset2[&#39;ETHRACE2A&#39;] = subset2[&#39;ETHRACE2A&#39;].cat.rename_categories([&#39;White&#39;,&#39;Black&#39;,&#39;NatAm&#39;,&#39;Asian&#39;,&#39;Hispanic&#39;])</code></pre>
 <p><img src="./img/13.png" alt=""></p>
-<p>We can see that the proportion of smokers for Native American&#39;s and Hispanic&#39;s is somewhat lower than other Ethnic races.</p>
+<p>We can see that the proportion (count of all the 1&#39;s in DAILY) of daily smokers for Native American&#39;s and Hispanic&#39;s is somewhat lower than other Ethnic races.</p>
+<p>By running the following statement you can see the actual counts for daily and non daily smokers per ethnic group:</p>
+<pre><code>c9= subset2.groupby([&#39;DAILY&#39;,&#39;ETHRACE2A&#39;]).size()
+print(c7)</code></pre>
+<p><img src="./img/14.png" alt=""></p>
 
       </div>
      
