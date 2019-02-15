@@ -254,7 +254,7 @@ Alternate hypothesis: There is a difference in smoking quantity between people w
 <p>The explanatory variable here is the existance of major depression (MAJORDEPLIFE), it is a categorical variable with two values, yes or no (1,0)
 The response variable here is the number of cigarettes smoked (NUMCIGMO_EST), it is a numerical variable ranging from 1 to 2940.</p>
 <h2>Step 2 : Choose Sample</h2>
-<p>We are going to test the hypotheses among individuals who are smokers and who are between 18 and 25. The sample size should be 1706.</p>
+<p>We are going to test the hypotheses among individuals who are smokers and who are between 18 and 26. The sample size should be 1706.</p>
 <p>Create a new lab06.py file in spyder, reuse the necessary code from previous labs so that you:</p>
 <ul>
 <li>import the necessary libraries numpy and pandas</li>
@@ -301,13 +301,11 @@ nesarc_data[&#39;CHECK321&#39;] = pandas.to_numeric(nesarc_data[&#39;CHECK321&#3
 nesarc_data[&#39;S3AQ3B1&#39;] = pandas.to_numeric(nesarc_data[&#39;S3AQ3B1&#39;])
 nesarc_data[&#39;S3AQ3C1&#39;] = pandas.to_numeric(nesarc_data[&#39;S3AQ3C1&#39;])
 
-#subset data to young adults age 18 to 25 who have smoked in the past 12 months
+#subset data to young adults age 18 to 26 who have smoked in the past 12 months
 sub1 = nesarc_data.copy()
 
-sub1 = sub1[(sub1[&#39;AGE&#39;]&gt;=18) &amp; (sub1[&#39;AGE&#39;]&lt;=25) &amp; (sub1[&#39;CHECK321&#39;]==1)]
+sub1 = sub1[(sub1[&#39;AGE&#39;]&gt;=18) &amp; (sub1[&#39;AGE&#39;]&lt;=26) &amp; (sub1[&#39;CHECK321&#39;]==1)]
 
-p1=len(sub1)
-print(p1)
 
 #SETTING MISSING NUMERICAL DATA
 sub1[&#39;S3AQ3B1&#39;]=sub1[&#39;S3AQ3B1&#39;].replace(9, numpy.nan)
