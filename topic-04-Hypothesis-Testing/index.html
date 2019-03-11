@@ -1,124 +1,513 @@
- <!DOCTYPE html>
- <html>
-   <head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      
 
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     
-
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
-
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-     <script>hljs.initHighlightingOnLoad();</script>
-
-     
-
-     <style>
-       
-
-body 
-{
-  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
-}
-
-figcaption
-{
-  margin-bottom: 20px;
-}
-
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
 }
 
 
 
-     </style>
-
-   </head>
-
-  <body>
-    
-
-  
-  <header class="ui center aligned middle aligned stackable grid segment">
-
-    
-      
-  <a class="ui blue left corner label">
-    <div id="showTOC" class="popup" data-content="Reveal TOC">
-      <i id="toc" class="sitemap big  icon"></i>
-    </div>
-  </a>
-
-    
-
-    <div class="ui five wide column">
-      <h2> Testing your hypothesis </h2>
-    </div>
-
-    <div class="ui two wide column">
-      
+    </style>
+  </head>
+  <body class="uk-background-muted">
+    <div class="wrapper">
+      <div class="content">
+        <div style="height:1000px;">
           
-  <div class="two wide column sitemap">
-    <div class="popup" data-content="To the top level Topics for this Module...">
-      <a href="../index.html"> <i class="huge home icon"></i> <br> Module Home </a>
-    </div>
-  </div>
-
+  
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
         
-    </div>
-
-    <div class="ui five wide column">
-      
-  <div class="four wide column">
-    <div class="ui center aligned mini message segment">
-      Dr. Brenda Mullally (bmullally@wit.ie).
-      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
-         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-         target="_blank">Creative Commons License
-      </a>
-    </div>
-  </div>
-
-    </div>
-
-    <div class="three wide column">
-      
-    </div>
-
-
-  </header>
-  
-  
-
-
-
-  <div class="ui segment pushable">
-    <div class="ui inverted labeled icon left inline vertical sidebar menu">
-      <div class="header">
-        <a class="item" href="#">
           
-        </a>
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-00-Module-Structure/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Module Structure 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-00-Module-Structure/talk-1/module-structure.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+module-structure
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Python, Anaconda, Data Exploration 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/talk-1/tools-languages.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Tools and languages 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/talk-2/Exploratory-data-analysis.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Exploratory Data analysis 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/talk-3-ca/CA_2018.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Continuous assessment 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-01
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Data Management 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/talk-1-data-management/Data-management.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Data-management
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/talk-2-data-management/Data-management.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Data Management II 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-02
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-03
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Visualisation of Data 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/talk-1/Visualisations_1.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Data Visualisation using Python Libraries 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/talk-2/Visualisations_2.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Seaborn library 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/talk-3/seaborn_cheatsheet.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Seaborn cheatsheet 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-04
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-05
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+Testing your hypothesis 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/talk-1/hypothesis_testing.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Hypothesis Testing 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-06
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book-ca/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab-07
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
       </div>
-      <div class="menu">
+    </div>
+  </div>
+
+  
+  <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-padding-small" uk-grid>
+    
+  <div class="uk-padding">
+    <a href="#offcanvas-usage" uk-toggle title="Table of Contents" pos="bottom" uk-tooltip>
+      
+  <i class="fas fa-bars fa-3x" style="color:"> </i>
+
+    </a>
+  </div>
+
+    
+  <div class="uk-width-1-2@m  uk-card uk-card-default uk-padding-small">
+    <div uk-grid>
+      <div class="uk-width-1-5@m">
         
+          
+  
+    <i class=" fa-4x" style="color:"></i>
+  
+
+        
+      </div>
+      <div class="uk-width-expand@m uk-text-left">
+        <h2> Testing your hypothesis  </h2>
+        <div class="uk-text-muted uk-text-small">
+          
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-padding">
+    
+      
+  <li>
+    <a href="../index.html" title="To the top level Topics for this Module" pos="bottom" uk-tooltip> 
+  <i class="fas fa-home fa-4x" style="color:"> </i>
+ </a>
+  </li>
+
+      
+  </div>
+
+    
+  
+    
+  
+
+    
+      
+
+  
+    <div class="uk-card uk-card-default uk-padding-small">
+      <ul class="uk-iconnav">
+        
+        
+          
+  
+    
+      
+      
+  <li>
+    <a href="../talkwall.html" title="All slides's in module" pos="bottom" uk-tooltip> 
+  <i class="fas fa-object-group fa-2x" style="color:#009688"> </i>
+ </a>
+  </li>
+
+    
+  
+    
+      
+      
+  <li>
+    <a href="../labwall.html" title="All labs's in module" pos="bottom" uk-tooltip> 
+  <i class="fas fa-flask fa-2x" style="color:#00BCD4"> </i>
+ </a>
+  </li>
+
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+        
+<<<<<<< HEAD
           <a class="item" href="talk-1/hypothesis_testing.pdf">
             Hypothesis Testing
           </a>
@@ -132,177 +521,259 @@ figcaption
           </a>
         
       </div>
+=======
+      </ul>
+>>>>>>> 6b2f8fa43211235725e106a60ea8b4d2c6f69765
     </div>
-    <div class="pusher">
-      <div class="ui basic container segment">
-       
-         
   
 
-         
-         
+    
+    
   
-    <section class="ui attached segment">
-      <a class="ui right ribbon label">talks</a>
-      <div class="ui centered four doubling stackable cards">
-        
+
+  </div>
+
+  
+  <div class="uk-container uk-padding-small">
+    
+  
+
+    
+  
+
+    
+  
+
+    
+  <div class="uk-container uk-padding-small">
+    <div class="uk-child-width-1-4@s uk-flex uk-flex-center" uk-grid uk-height-match="target: > div > .uk-card">
+      
+        <div>
           
             
 
   
-     <a class="ui raised link card" href="talk-1/hypothesis_testing.pdf" target="_blank">
   
 
-      <div class="center aligned content">
-        <div class="right floated meta"><i class="huge object group icon"></i></div>
-        <div class="header"> Hypothesis Testing</div>
-      </div>
-
-      <div class="image">
-        <img class="ui bordered rounded image" src="talk-1/hypothesis_testing.png">
-      </div>
-
-      <div class="center aligned content">
-        <div class="description">
-          <p>Descriptive statistics include frequencies and graphical presentation of variables, calculations of</p>
-
-        </div>
-      </div>
-
+  <div class="uk-card uk-card-default 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+    
       
+    
+    <a href=.//talk-1/hypothesis_testing.pdf target="_blank">
+  
 
-    </a>
-
-
-          
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> Hypothesis Testing </h3>
+      </div>
+      <div class="uk-width-1-4@m">
         
-      </div>
-    </section>
-  
+  <i class="fas fa-object-group fa-2x" style="color:#009688"> </i>
 
-         
-         
-  
-    <section class="ui attached segment">
-      <a class="ui right ribbon label">labs</a>
-      <div class="ui centered four doubling stackable cards">
         
-          
-            
-
-  
-    <a class="ui raised link card" href="book/index.html">
-  
-
-      <div class="center aligned content">
-        <div class="right floated meta"><i class="huge lab icon"></i></div>
-        <div class="header"> Lab-06</div>
-      </div>
-
-      <div class="image">
-        <img class="ui bordered rounded image" src="book/img/main.png">
-      </div>
-
-      <div class="center aligned content">
-        <div class="description">
-          <p>The solution to lab05 is available here:</p>
-
-        </div>
-      </div>
-
-      
-
-    </a>
-
-
-          
-        
-          
-            
-
-  
-    <a class="ui raised link card" href="book-ca/index.html">
-  
-
-      <div class="center aligned content">
-        <div class="right floated meta"><i class="huge lab icon"></i></div>
-        <div class="header"> Lab-07</div>
-      </div>
-
-      <div class="image">
-        <img class="ui bordered rounded image" src="book-ca/img/main.png">
-      </div>
-
-      <div class="center aligned content">
-        <div class="description">
-          <p>Work on your continuous assessment in your three hours of labs this week.</p>
-
-        </div>
-      </div>
-
-      
-
-    </a>
-
-
-          
-        
-      </div>
-    </section>
-  
-
-         
-         
-  
-
-         
-         
-  
-
-         
       </div>
     </div>
   </div>
 
+    
+  <div class="uk-card-body">
+    
+      <img src="./talk-1/hypothesis_testing.png">
+    
+  </div>
 
-    <footer>
+    
+  
+    </a>
+  
 
-    </footer>
-    <script>
-      $(document).ready(function() {
-  $('img').addClass('ui image');
+    
+  
 
-  $('.ui.embed').embed();
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Descriptive statistics include frequencies and graphical presentation of variables, calculations of</p>
+</p>
+    </div>
+  
 
-  const $images = $('.lab img');
-  jQuery.each($images, function(i) {
-    if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass(
-        'ui basic segment',
-      );
-      $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass(
-        'ui blue ribbon label',
-      );
-      divLabel.append($images[i].alt);
-      $(divLabel).insertBefore($images[i]);
-    }
-  });
+    
+  
 
-  $('.ui.menu .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
+  </div>
 
-  $('.popup').popup();
 
-  $('.ui.sidebar')
-    .sidebar({ context: $('.pushable') })
-    .sidebar('setting', 'transition', 'slide out')
-    .sidebar('attach events', '#toc');
-});
 
-    </script>
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+    
+      
+      
+    
+    <a href=./book/index.html>
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> Lab-06</h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-flask fa-2x" style="color:#00BCD4"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./book/img/main.png">
+    
+  </div>
+
+    
+  
+    </a>
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>The solution to lab05 is available here:</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+<<<<<<< HEAD
+      <div class="center aligned content">
+        <div class="right floated meta"><i class="huge lab icon"></i></div>
+        <div class="header"> Lab-07</div>
+      </div>
+=======
+  <div class="uk-card uk-card-default 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+    
+      
+      
+    
+    <a href=./book-ca/index.html>
+  
+>>>>>>> 6b2f8fa43211235725e106a60ea8b4d2c6f69765
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> Lab-07</h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-flask fa-2x" style="color:#00BCD4"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./book-ca/img/main.png">
+    
+  </div>
+
+    
+  
+    </a>
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Work on your continuous assessment in your three hours of labs this week.</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+    </div>
+  </div>
+
+    <hr class="uk-divider-icon">
+  </div>
+
+
+        </div>
+      </div>
+      <div class="footer uk-text-small uk-text-right uk-text-muted"> Powered by <a
+          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
+        
+      </div>
+    </div>
   </body>
-
- </html>
+</html>

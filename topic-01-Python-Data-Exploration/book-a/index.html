@@ -1,219 +1,216 @@
- <!DOCTYPE html>
- <html>
-   <head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     
-
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
-
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-     <script>hljs.initHighlightingOnLoad();</script>
-
-     
-
-     <style>
-       
-
-body 
-{
+body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
 }
 
-figcaption
-{
-  margin-bottom: 20px;
+p {
+  margin: 0.5em;
 }
 
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
-}
-
-
-
-     </style>
-
-   </head>
-
-  <body>
-    
-
-<style>
-  
-
-code
-{
+pre code {
   font-family: "Monaco";
-  font-size: 110%;
+  font-size: 100%;
 }
 
-img
-{
-  padding:1px;
-  border:1px solid black;
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
 }
 
-h1
-{
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
   font-style:italic;
   font-size:130%;
-  border-bottom:thin solid black;
 }
 
-h2
-{
+h2 {
   font-size:110%;
-  border-bottom: thin solid black;
 }
 
-h3
-{
+h3 {
   font-size:100%;
-  border-bottom: thin solid black;
 }
 
-body
-{
-  overflow-y: scroll;
-}
 
-.pushable > .pusher
-{
-  padding-bottom: 1.5rem;
-}
 
-.ui.segment.pushable
-{
+      
+
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
 }
 
 
 
-</style>
+    </style>
+  </head>
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    <a href="../index.html">
-      Python, Anaconda, Data Exploration
-    </a>
-  </header>
-  <div class="right tab-menu menu">
-    
-    <a class="item" data-tab="Lab-01">
-      Lab-01
-    </a>
-    
-    <a class="item" data-tab="01">
-      01
-    </a>
-    
-    <a class="item" data-tab="02">
-      02
-    </a>
-    
-    <a class="item" data-tab="03">
-      03
-    </a>
-    
-    <a class="item" data-tab="04">
-      04
-    </a>
-    
-    <a class="item" data-tab="05">
-      05
-    </a>
-    
-    <a class="item" data-tab="06">
-      06
-    </a>
-    
-    <div class="item">
-      
-    </div>
-  </div>
-</div>
+  
+  
 
-<div class="ui segment pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
       
-        <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
+        <a href="../index.html"> Python, Anaconda, Data Exploration  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-01">
           Lab-01
         </a>
       
-    
-      
-        <a class="item" href="../../topic-02-Data-Management/book/index.html">
-          Lab-02
+        <a class="item" data-tab="01">
+          01
         </a>
       
-    
-      
-        <a class="item" href="../../topic-02-Data-Management/book-a/index.html">
-          Lab-03
+        <a class="item" data-tab="02">
+          02
         </a>
       
-    
-      
-        <a class="item" href="../../topic-03-Visualisation/book/index.html">
-          Lab-04
+        <a class="item" data-tab="03">
+          03
         </a>
       
-    
-      
-        <a class="item" href="../../topic-03-Visualisation/book-a/index.html">
-          Lab-05
+        <a class="item" data-tab="04">
+          04
         </a>
       
-    
-      
-        <a class="item" href="../../topic-04-Hypothesis-Testing/book/index.html">
-          Lab-06
+        <a class="item" data-tab="05">
+          05
         </a>
       
-    
+        <a class="item" data-tab="06">
+          06
+        </a>
       
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
+          
+        
+      
+<<<<<<< HEAD
         <a class="item" href="../../topic-04-Hypothesis-Testing/book-ca/index.html">
           Lab-07
         </a>
+=======
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
+          
+        
+>>>>>>> 6b2f8fa43211235725e106a60ea8b4d2c6f69765
       
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment" id="labchat">
-      <br>
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book/index.html">Lab-06 </a>
+          
+        
       
-      <div  class="ui tab segment lab" data-tab="Lab-01">
-        <h1>Introduction to Python</h1>
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book-ca/index.html">Lab-07 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-01">
+            <h1>Introduction to Python</h1>
 <p>Python is an interpreted, object-oriented, high level programming language. Python&#39;s simple, easy to learn syntax emphasises readability. It supports packages and modules with several specifically designed for data analysis.</p>
 <h1>Credits</h1>
 <p>This uses Coursera data management and visualisation course, by Wesleyan university</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="01">
-        <h1>Datacamp Python course</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Datacamp Python course</h1>
 <p>DataCamp offer many free online courses for learning data analysis. To start with the basics skills of the programming language Python you will start the Python course offered on DataCamp. Signup and login to begin the course. This module does not expect you to have this completed, it is simply a good starting point to pick up the basic skills to help with this module. You will be provided with the code you need to complete the lab work. However for the assignment it would be a good idea to improve your python skills beyond what the labs provide.</p>
 <p><a href="https://www.datacamp.com/learn-python-with-anaconda">https://www.datacamp.com/learn-python-with-anaconda</a></p>
 <p>Another similar online course is provided by codeacademy.</p>
@@ -222,10 +219,10 @@ body
 Here is a good quick reference guide for python:</p>
 <p><a href="http://www.dataschool.io/python-quick-reference">http://www.dataschool.io/python-quick-reference</a></p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="02">
-        <h1>Introduction to Python using Spyder</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Introduction to Python using Spyder</h1>
 <p>Python is a programming language, and you&#39;ll be writing your Python code in the programming environment called Spyder. The Anaconda distribution simplifies the installation process by including Python, Spyder, and other packages and tools in one installation.</p>
 <p><img src="./img/01.png" alt=""></p>
 <h2>Installing Anaconda</h2>
@@ -271,10 +268,10 @@ Here is a good quick reference guide for python:</p>
 <li>After that compeltes, you can then close the command prompt window.</li>
 </ul>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="03">
-        <h1>Getting to know Spyder</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Getting to know Spyder</h1>
 <p>You will write your programs and run them inside the Spyder IDE.</p>
 <p><img src="./img/06.png" alt=""></p>
 <p>On Windows, in the search box on the start menu, type Spyder. Click on the program.
@@ -297,10 +294,10 @@ If you accidently close a window or change the layout, you can revert to the def
 </li>
 </ul>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="04">
-        <h1>Editing</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Editing</h1>
 <p>The first task is to set your working directory. This is done by clicking on the folder icon in the top right corner above the object inspector.</p>
 <p><img src="./img/09.png" alt=""></p>
 <p>Browse to the folder where you wish to keep all of your python files and data files. This is the folder from which python files are executed and where you can import and run data sets.</p>
@@ -348,10 +345,10 @@ print (len(nesarc_data.columns)) # number of variables (columns)</code></pre>
 <p>If we save and run this program by highlighting the code and selecting, run selection or current line within the Run menu, you can see here that Nesarc includeds 3,008 variables measured on 43,093 individual participants.</p>
 <p><img src="./img/13.png" alt=""></p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="05">
-        <h1>Frequency distribution</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Frequency distribution</h1>
 <p>I&#39;m interested in looking at the association between how much a person smokes, that is the quantity and frequency of smoking, and the presence or absence of nicotine dependence.</p>
 <p>To investigate this we need to look in detail at the code book for the nesarc data set.</p>
 <ul>
@@ -387,10 +384,10 @@ print (p1)</code></pre>
 <p>Read in your code book to see what these variables relate to.</p>
 <p>From the File menu choose Save and then Run from the Run menu.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="06">
-        <h1>Frequencies</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Frequencies</h1>
 <p>Your code from the previous step should look like this:</p>
 <pre><code>
 c1= nesarc_data[&quot;TAB12MDX&quot;].value_counts(sort=False)
@@ -462,25 +459,16 @@ pandas.set_option(&#39;display.float_format&#39;,lambda x:&#39;%f&#39;%x)</code>
 <p>Pandas documentation is available online for you to investigate futher options and settings for all the functions we use.</p>
 <p><a href="http://pandas.pydata.org/pandas-docs/version/0.20/api.html">http://pandas.pydata.org/pandas-docs/version/0.20/api.html</a></p>
 
+          </div>
+        
       </div>
-     
     </div>
   </div>
-</div>
-<!--<div class="ui bottom fixed borderless right menu">
-  <div class="ui right tiny menu">
-    <div class="ui mini message segment">
-      .
-      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
-         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-         target="_blank">Creative Commons License
-      </a>
-    </div>
-  </div>
-</div>-->
 
-<script>
-  $(document).on('keydown', function(e) {
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -500,15 +488,7 @@ pandas.set_option(&#39;display.float_format&#39;,lambda x:&#39;%f&#39;%x)</code>
   }
 });
 
-</script>
-
-
-
-    <footer>
-
-    </footer>
-    <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -541,7 +521,18 @@ pandas.set_option(&#39;display.float_format&#39;,lambda x:&#39;%f&#39;%x)</code>
     .sidebar('attach events', '#toc');
 });
 
-    </script>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
   </body>
 
- </html>
+</html>

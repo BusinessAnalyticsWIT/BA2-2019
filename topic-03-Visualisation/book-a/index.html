@@ -1,216 +1,213 @@
- <!DOCTYPE html>
- <html>
-   <head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     
-
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
-
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-     <script>hljs.initHighlightingOnLoad();</script>
-
-     
-
-     <style>
-       
-
-body 
-{
+body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
 }
 
-figcaption
-{
-  margin-bottom: 20px;
+p {
+  margin: 0.5em;
 }
 
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
-}
-
-
-
-     </style>
-
-   </head>
-
-  <body>
-    
-
-<style>
-  
-
-code
-{
+pre code {
   font-family: "Monaco";
-  font-size: 110%;
+  font-size: 100%;
 }
 
-img
-{
-  padding:1px;
-  border:1px solid black;
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
 }
 
-h1
-{
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
   font-style:italic;
   font-size:130%;
-  border-bottom:thin solid black;
 }
 
-h2
-{
+h2 {
   font-size:110%;
-  border-bottom: thin solid black;
 }
 
-h3
-{
+h3 {
   font-size:100%;
-  border-bottom: thin solid black;
 }
 
-body
-{
-  overflow-y: scroll;
-}
 
-.pushable > .pusher
-{
-  padding-bottom: 1.5rem;
-}
 
-.ui.segment.pushable
-{
+      
+
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
 }
 
 
 
-</style>
+    </style>
+  </head>
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    <a href="../index.html">
-      Visualisation of Data
-    </a>
-  </header>
-  <div class="right tab-menu menu">
-    
-    <a class="item" data-tab="Lab-05">
-      Lab-05
-    </a>
-    
-    <a class="item" data-tab="01">
-      01
-    </a>
-    
-    <a class="item" data-tab="02">
-      02
-    </a>
-    
-    <a class="item" data-tab="03">
-      03
-    </a>
-    
-    <a class="item" data-tab="04">
-      04
-    </a>
-    
-    <a class="item" data-tab="05">
-      05
-    </a>
-    
-    <div class="item">
-      
-    </div>
-  </div>
-</div>
+  
+  
 
-<div class="ui segment pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
       
-        <a class="item" href="../../topic-01-Python-Data-Exploration/book-a/index.html">
-          Lab-01
-        </a>
+        <a href="../index.html"> Visualisation of Data  </a>
       
-    
+    </header>
+    <div class="right tab-menu menu">
       
-        <a class="item" href="../../topic-02-Data-Management/book/index.html">
-          Lab-02
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-02-Data-Management/book-a/index.html">
-          Lab-03
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-03-Visualisation/book/index.html">
-          Lab-04
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-03-Visualisation/book-a/index.html">
+        <a class="item" data-tab="Lab-05">
           Lab-05
         </a>
       
-    
-      
-        <a class="item" href="../../topic-04-Hypothesis-Testing/book/index.html">
-          Lab-06
+        <a class="item" data-tab="01">
+          01
         </a>
       
-    
+        <a class="item" data-tab="02">
+          02
+        </a>
       
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
+          
+        
+      
+<<<<<<< HEAD
         <a class="item" href="../../topic-04-Hypothesis-Testing/book-ca/index.html">
           Lab-07
         </a>
+=======
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
+          
+        
+>>>>>>> 6b2f8fa43211235725e106a60ea8b4d2c6f69765
       
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment" id="labchat">
-      <br>
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
+          
+        
       
-      <div  class="ui tab segment lab" data-tab="Lab-05">
-        <h1>Graphing quantitative response variables.</h1>
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book/index.html">Lab-06 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book-ca/index.html">Lab-07 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-05">
+            <h1>Graphing quantitative response variables.</h1>
 <p>The solution to lab04 is available here:</p>
 <ul>
 <li><a href="./archives/lab04.py">lab4 python file</a></li>
 </ul>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="01">
-        <h1>Quantitative Response variables</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Quantitative Response variables</h1>
 <p>In the previous lab you graphed two variables where the response variable was categorical, in one example the explanatory variable was numerical and one where the explanatory variable was categorical.</p>
 <p>For this example we will look at the scenario where the response variable is quantitative.</p>
 <h1>Gapminder dataset</h1>
@@ -237,10 +234,10 @@ body
 <p>Once you have the conversions complete you can then describe each variable.</p>
 <p>Write the statements to describe each variable and print the output so you can see the count, mean, standard deviation etc for each variable.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="02">
-        <h1>Scatter plot</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Scatter plot</h1>
 <p>You should see the following descriptive stats for each variable:</p>
 <p><img src="./img/03.png" alt=""></p>
 <p><img src="./img/04.png" alt=""></p>
@@ -267,10 +264,10 @@ What relationship does this chart present? Is it stronger or weaker than the pre
 <p><img src="./img/07.png" alt=""></p>
 <p>Not all relationships can be classified as positive or negative. Also if you can&#39;t plausibly put a line through the dots, if the dots are just a cloud of specks on a graph, then there may be no relationship.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="03">
-        <h1>Scatter Plots continued</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Scatter Plots continued</h1>
 <p>Create the scatter plot for response variable &quot;hivrate&quot; and explanatory variable &quot;incomeperperson&quot;</p>
 <p>Remember to make sure both variables are numeric.</p>
 <p><img src="./img/08.png" alt=""></p>
@@ -292,10 +289,10 @@ plt.ylabel(&#39;mean HIV rate&#39;)</code></pre>
 <p><img src="./img/10.png" alt=""></p>
 <p>In this bar chart we can see the differences in HIV rate based on the counties income per person groups.</p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="04">
-        <h1>Bivarate chart options</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Bivarate chart options</h1>
 <h2>Categorical to categorical graph</h2>
 <p>Explanatory variable on the X axis (categorical), the proportion of our response variable on the Y axis (2 group categorical).</p>
 <p><img src="./img/11.png" alt=""></p>
@@ -306,31 +303,22 @@ plt.ylabel(&#39;mean HIV rate&#39;)</code></pre>
 <p>Explanatory variable values on the X axis (quantitative), response variable values on the Y axis (quantitative)</p>
 <p><img src="./img/13.png" alt=""></p>
 
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="05">
-        <h1>continuous assessment</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>continuous assessment</h1>
 <p>Apply what you have learned to your continuous assessment work.</p>
 
+          </div>
+        
       </div>
-     
     </div>
   </div>
-</div>
-<!--<div class="ui bottom fixed borderless right menu">
-  <div class="ui right tiny menu">
-    <div class="ui mini message segment">
-      .
-      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
-         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-         target="_blank">Creative Commons License
-      </a>
-    </div>
-  </div>
-</div>-->
 
-<script>
-  $(document).on('keydown', function(e) {
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -350,15 +338,7 @@ plt.ylabel(&#39;mean HIV rate&#39;)</code></pre>
   }
 });
 
-</script>
-
-
-
-    <footer>
-
-    </footer>
-    <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -391,7 +371,18 @@ plt.ylabel(&#39;mean HIV rate&#39;)</code></pre>
     .sidebar('attach events', '#toc');
 });
 
-    </script>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
   </body>
 
- </html>
+</html>
