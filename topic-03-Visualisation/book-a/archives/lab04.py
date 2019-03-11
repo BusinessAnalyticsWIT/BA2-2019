@@ -99,8 +99,6 @@ bc1 = seaborn.countplot(x='TAB12MDX',data=subset2)
 plt.xlabel('Nicotine Dependence past 12 months')
 plt.title('Nicotine Dependence in the past 12 months among young adult smokers in the Nesarc study')
 
-
-bc2 = seaborn.distplot(subset2['NUMCIGMO_EST'].dropna(),kde=False)
 #numerical
 bc2 = seaborn.distplot(subset2.NUMCIGMO_EST.dropna())
 plt.xlabel('Number of cigarettes per month')
@@ -172,7 +170,6 @@ plt.ylabel('Proportion Nicotine dependence')
 
 
 
-#Step 4 lab 4
 #Step 4 lab 4, smokegrp holds 1 if nicotine dependent, 2 for daily smoker, 3 all others
 def SMOKEGRP (row):
   if row['TAB12MDX'] == 1:
@@ -184,30 +181,6 @@ def SMOKEGRP (row):
 
 subset2['SMOKEGRP'] = subset2.apply(lambda row: SMOKEGRP (row), axis=1)
 
-c8 = subset2['SMOKEGRP'].value_counts(normalize=True)
-print(c8)
-
-#univariate chart for smokegrp
-
-bc1 = seaborn.countplot(x='SMOKEGRP',data=subset2)
-plt.xlabel('Nicotine Dependence past 12 months')
-plt.title('Nicotine Dependence, daily smokers and all other young adult smokers in the Nesarc study')
-
-#to conduct analysis with another variable we must collapse the groups into two.
-
-def DAILY(row):
-    if row['USFREQMO'] == 30:
-        return 1
-    elif row['USFREQMO'] != 30:
-        return 0
-    
-subset2['DAILY'] = subset2.apply(lambda row: DAILY(row), axis=1)
-
-c7 = subset2.groupby('DAILY').size()
-print(c7)
-
-###
-=======
 c8=subset2['SMOKEGRP'].value_counts(normalize=True)
 print(c8)
 
@@ -241,4 +214,3 @@ plt.ylabel('Proportion Daily Smokers')
 
 c9= subset2.groupby(['DAILY','ETHRACE2A']).size()
 print(c7)
->>>>>>> 716ccc8f508d9a46b3167e3093daf738a7a65feb
