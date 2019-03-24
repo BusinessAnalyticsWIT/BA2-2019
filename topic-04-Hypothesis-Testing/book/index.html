@@ -186,20 +186,6 @@ html, body {
           
         
       
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-05-Regression-Clustering/book/index.html">Lab-08 </a>
-          
-        
-      
-        
-          
-            <a class="item"
-               href="http://Business-Analytics-2017.github.io/BA2///topic-05-Regression-Clustering/book-a/index.html">Lab-09 </a>
-          
-        
-      
     </div>
     <div class="pusher" tabindex="-1">
       <div class="ui basic segment">
@@ -422,7 +408,7 @@ For example, the ethnic group with the lowest mean number of cigarettes smoked p
 mc1 = multi.MultiComparison(sub3[&#39;NUMCIGMO_EST&#39;], sub3[&#39;ETHRACE2A&#39;])
 res1 = mc1.tukeyhsd()
 print(res1.summary())</code></pre>
-<p>The quanitative response variable NUMCIGMO_EST is included in the call to MultiComparison() and the categorical variable ETHRACE2A.
+<p>The quantitative response variable NUMCIGMO_EST is included in the call to MultiComparison() and the categorical variable ETHRACE2A.
 A summary table of the comparisons are presented.</p>
 <p><img src="./img/06.png" alt=""></p>
 <p>In the fourth row of the table, we see the comparison between White and Asian ethnic groups, it shows the mean differences between these two groups. In the last column we can determine which ethnic groups smoke significantly different mean number of cigarettes than the others by identifying the comparisons in which we can reject the null hypothesis, that is, in which reject equals true.</p>
