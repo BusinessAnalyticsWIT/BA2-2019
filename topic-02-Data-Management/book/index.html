@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html"> Data Management  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-02">
+          Lab-02
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book/index.html">Lab-06 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book-ca/index.html">Lab-07 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-05-Regression-Clustering/book/index.html">Lab-08 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-02">
+            <h1>Refining your research question by selecting rows</h1>
+<p>Refining research questions is essential in order to focus your analysis and discover the answer to a specific well thought out research question.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Solution</h1>
+<p>The solution python file for lab01 is available here</p>
+<ul>
+<li><a href="./archives/lab01.py">lab1 python file</a></li>
+</ul>
+<p>If you did not get the lab finished copy the code and save it to your working directory and run it to make sure it works.</p>
+<p>As you learn more keep applying it to your continuous assessment.</p>
+<h2>Selecting rows</h2>
+<p>Once you examine frequency distributions for your variables you need to decide whether you want to look at a subset of the data.</p>
+<p>For example so far we have conducted frequency distributions on the entire data set or sample so our question concerning the association between smoking and nicotine dependence has been applied to the full sample.</p>
+<p>We now can decide to examine only those adults who are 25 or younger and exclude all adults older than the age of 25. We also decide we want to focus on recent smokers, rather than individuals who smoked more than a year ago.</p>
+<p>The research question has not changed. Rather, the question will be asked based on only a subset of the observations that are available in a specific dataset that will help us answer our research question.</p>
+<p>To implement these decisions we will add additional code to our program.</p>
+<p>First you should &quot;save as&quot; the Lab01.py file and call it Lab02.py still saving it in your working directory.</p>
+<p>We will need to add logic statements that tell the program to include only those observations that will help you answer your research question.</p>
+<p>Logic statements require one or more operations. Here are common operators used in Python, you should be familiar with these from the DataCamp or Codecademy Python course you started in Week 3.</p>
+<p>Here are the common ones used in Python:</p>
+<p><img src="./img/00.png" alt=""></p>
+<p>These include equal to, not equal to, less than, greater than, less than or equal to, and greater than or equal to.</p>
+<p>Our code needs to include three logic statements in order to include in the specified observations (rows) from our dataset.</p>
+<pre><code>
+age &gt;= 18  and  age &lt;=25 and smoker in last 12 months = yes</code></pre>
+<p>To do this we must place this logic in our Python code. First we must check in our code book to see what variable names we need to use for analysing age and recent smoker.</p>
+<p>Page 5 in the code book shows us a variable called AGE that contains a number representing the age in years of each respondent. You may recall in Lab02 we used a variable called CHECK321 which was the cigarette smoking status where the value 1 indicated the respondent smoked within the last 12 months.</p>
+<p>You can see that is it very important to have a well documented code book to support your analysis.</p>
+<p>The code we need to add to our program is shown below:</p>
+<pre><code>print(&#39;The number of rows in the subset of adults between 18 and 25 that have smoked in the past 12 months&#39;)
+subset1 = nesarc_data[(nesarc_data[&#39;AGE&#39;]&gt;=18) &amp; (nesarc_data[&#39;AGE&#39;]&lt;=25) &amp; (nesarc_data[&#39;CHECK321&#39;]==&#39;1&#39;)]
+print(len(subset1))</code></pre>
+<p>If you remember in Lab04 we converted two variables to numbers using pandas.to_numeric. The logic statement above tests the value in CHECK321 is equal to the string &#39;1&#39;. If you converted CHECK321 to a number also then the logic statement will have to compare the CHECK321 variable value to the number 1</p>
+<p>Remember we have to tell Python within each part of the logic statement what dataset we are working on and each variable name is held in quotation marks and square brackets.
+Each logic statement is enclosed in parenthesis and separated with in this case an &#39;and&#39; symbol &amp;. Finally the logic is contained with the square brackets.</p>
+<p>Save and run the program. You should at the end of the console the following output:</p>
+<p><img src="./img/01.png" alt=""></p>
+<p>Next write the code to generate distribution frequencies for the Age variable in the new subset1</p>
+<p>Your code should look like this:</p>
+<p><img src="./img/02.png" alt=""></p>
+<p>Your output like this:</p>
+<p><img src="./img/03.png" alt=""></p>
+<p>Remember the output is only for the 1706 individuals between the ages of 18 and 25 who reported smoking in the past 12 months.</p>
+<p>As a check to make sure you are working on the subset you can check the count for the variable CHECK321 and there should only be 1706 for the value 1.</p>
+<p><img src="./img/04.png" alt=""></p>
+<h2>Tips</h2>
+<p>It is often useful to make a copy of a dataframe it is easily done using the following code:</p>
+<pre><code>subset2=subset1.copy()</code></pre>
+<p>Then you can use subset2. This can cause issues when dealing with datatypes that were converted however.
+Sometimes if you want to do comparisons on a variable in the copy the data conversion we did in lab04 on the nesarc_data does not copy over to the subset. It just means you have to apply that conversion again to the subset. (see the next step)</p>
+<pre><code>print(&#39;Number of observations in subset 2&#39;)
+print(len(subset2))</code></pre>
+<p><img src="./img/05.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Data Management</h1>
+<p>Data Management involves making decisions about recording data in ways that help to answer our research questions.</p>
+<p>The code book and frequency distributions often are the first port of call for helping to make these decisions. You will use both of these tools often because they reveal things about the data that will be helpful to you.</p>
+<p><a href="./archives/NESARC_codebook.pdf">nesarc codebook</a></p>
+<p>There are several steps commonly considered when conducting your data management. In some cases the dataset is very clean and the variables are already well managed that you do not need to do much if any data management.</p>
+<p>In all datasets you should consider each possible decision you make about a dataset. This means you play an active role in understanding your data and assuring that you are asking your questions in an appropriate and meaningful way, as well as ensuring your treatment of the data and changes you make are documented and justified.</p>
+<h2>Missing Data</h2>
+<p>A first step to consider is whether or not you need to code out missing data.</p>
+<p>For example the adult smoker from step1. In the Nesarc codebook you can see the response of 1 in variable S3AQ3B1 is for daily smoking. The data will often include response categories that don&#39;t help you answer your question even though they provide information. For instance, in this variable we have a response category unknown, coded as a nine.</p>
+<p>For these responses, we don&#39;t know how much these individuals smoked and therefore we may not want to include them in our analysis.</p>
+<p>Using the new data frame subset we created in the last step of this lab subset2 we are going to set responses of 9 for variable S3AQ3B1 to missing so that Python disregards these values. First we need make sure that the variable S3AQ3B1 in the subset2 is actually a number</p>
+<pre><code>
+subset2[&#39;S3AQ3B1&#39;]=pandas.to_numeric(subset2[&#39;S3AQ3B1&#39;])</code></pre>
+<p>if you do a frequency count on that variable you will see how many 9 values there are:</p>
+<pre><code>
+#counts for S3AQ3B1
+print(&#39;counts for S3AQ3B1 - usual frequency when smoked cigarettes&#39;)
+c7= subset2[&quot;S3AQ3B1&quot;].value_counts(sort=True)
+print (c7)</code></pre>
+<p> You should see there are 3 values set to 9.</p>
+<p>Then enter this code:</p>
+<pre><code>
+subset2[&#39;S3AQ3B1&#39;]=subset2[&#39;S3AQ3B1&#39;].replace(9,numpy.nan)</code></pre>
+<p>this replaces all the 9 values in that variable with NaN using the numpy library. Nan is how Python specifies missing data.</p>
+<p>Remember when you use a variable you have to tell Python the data frame the variable is inside. So we have to include subset2 in the code.</p>
+<p>Now we check to see if there are any values equal to 9 still remaining for that variable</p>
+<pre><code>
+print((subset2[&#39;S3AQ3B1&#39;]==9).sum())</code></pre>
+<p>This should result in 0.</p>
+<p>Next we can count how many are Nan or null</p>
+<pre><code>
+print(subset2[&#39;S3AQ3B1&#39;].isnull().sum())</code></pre>
+<p>or we do our frequency distribution again for that variable:</p>
+<pre><code>
+print(&#39;counts for S3AQ3B1 - usual frequency when smoked cigarettes&#39;)
+c8= subset2[&#39;S3AQ3B1&#39;].value_counts(sort=True, dropna=False)
+print (c8)</code></pre>
+<p>You should see that the 3 values that were originally 9 are now Nan.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Data management</h1>
+<p>Next consider another variable, S3AQ3C1 which holds values for the usual smoking quantity.</p>
+<p>Look up the codebook for this variable. It is a value of between 1 and 98. A value of 99 indicates an unknown response. It is this value that we want to deal with, we want to set it to missing since it doesn&#39;t measure the number of cigarettes smoked, but rather indicates that we have no information on cigarette use for individuals coded as 99.</p>
+<p>Complete the same steps as you did for S3AQ3B1.</p>
+<p>You should see 9 observations that contained values 99 that are now set to Nan.</p>
+<p>Examine each variable that is of interest to you to manage any missing values.</p>
+<p>The next step is deciding whether or not you need to code in valid data that has been unnecessarily set to missing.</p>
+<p>In some data sets, particularly those based on surveys, there are often skip patterns. Skip patterns are often created in
+surveys that allow participants to skip questions in which the answer can be logically determined. In this way, missing data on some questions might mean that we can reasonably recover valid information.</p>
+<p>For the question, did you drink at least one alcoholic drink in the past 12 months (variable S2AQ3), many participants said no. These individuals would not need to be asked the question about how often they drank alcohol in the past 12 months, therefore they are empty.</p>
+<p>Look up the codebook for both of these variables so you are familiar.</p>
+<p>First you should count the frequencies for each variable so you can see how many are blanks.</p>
+<p><img src="./img/06.png" alt=""></p>
+<p>For this variable we need to find out first what the blank is, is it null, is it an empty string or it is a space.</p>
+<p>An easy way to check is to do a count on the number of observations that fit a criteria:</p>
+<p>Here we can see 180 observations answered no to &quot;did you drink at least one alcoholic drink in the past 12 months?&quot; (value 2)</p>
+<p>Then we can see that 180 observations answered blank to &quot;How often they drank alcohol in the past 12 months?&quot;</p>
+<pre><code>#first see if there are any nulls
+
+print((subset2[&#39;S2AQ8A&#39;].isnull()).sum())
+
+#next see if there are any empty values
+print((subset2[&#39;S2AQ8A&#39;]==&quot;&quot;).sum())
+
+#next see if there are any that contain a space
+print((subset2[&#39;S2AQ8A&#39;]==&quot; &quot;).sum())</code></pre>
+<p>You should see 180 returned for the last line of code, this tells us there are 180 observations that contain a space.</p>
+<p>We need to replace this &quot; &quot; with NaN. So for the variable (S2AQ8A), how often did you drink alcohol in the past 12 months, it would be reasonable to code this as valid data (with the value 11) rather than missing for those saying that they have never drank alcohol.</p>
+<p>Now we want to replace the blank data with Nan.</p>
+<pre><code>
+subset2[&#39;S2AQ8A&#39;]=subset2[&#39;S2AQ8A&#39;].replace(&#39; &#39;, numpy.NaN)</code></pre>
+<p>Now do the same count again for the full variable to see how many there are for each value:</p>
+<pre><code>
+c10=subset2[&#39;S2AQ8A&#39;].value_counts(sort=True, dropna=False)
+print(c10)
+
+# or just count the nulls
+
+print(subset2[&#39;S2AQ8A&#39;].isnull().sum())</code></pre>
+<p>Next we want to replace the nulls with an actual value, in this case 11 (here we are adding a category to the list) We need to include if S2AQ3 is not equal to 9 to our logic statement, in order to separate the no responses</p>
+<pre><code>
+subset2.loc[(subset2[&#39;S2AQ3&#39;]!=9) &amp; (subset2[&#39;S2AQ8A&#39;].isnull()),&#39;S2AQ8A&#39;]=11</code></pre>
+<p>print out the counts now for the complete variable to double check that you now have 180 observations for the value 11.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Recoding responses</h1>
+<p>Another useful step in data management is to give your variables response codes that may be more logical than those they were originally given. For example, the variable usual smoking frequency S3AQ3B1 shows in the code book that lower values mean more smoking, and higher values means the respondents smoked less.</p>
+<p>This coding sounds counterintuitive. We could choose to reverse code this variable so that higher values means more smoking, and lower values mean less smoking.</p>
+<p>First we build a dictionary that recodes each value:</p>
+<pre><code>
+recode1= {1: 6, 2: 5, 3: 4, 4: 3, 5: 2, 6: 1}</code></pre>
+<p>The format is value colon new value with commas separating each.</p>
+<p>Next we use the map function to point to point to the recode1 dictionary and ask that these new codes apply to variable S3AQ3B1</p>
+<pre><code>
+subset2[&#39;USFREQ&#39;] = subset2[&#39;S3AQ3B1&#39;].map(recode1)</code></pre>
+<p>In this case it is good practice to create a new variable to hold the newly coded values so that you do not get confused with the original data.</p>
+<p>If however we wanted to recode using a more quantitative value rather than categorical (6=daily, 5=5 to 6 days per week). To do this we choose values that reasonable correspond to the number of times each individual smokes in a typical month.</p>
+<ul>
+<li>So someone who reports smoking everyday could be said to smoke cigarettes 30 days in a month.</li>
+<li>Someone who smokes 5 to 6 days a week could be said to smoke 22 days in a usual month.</li>
+<li>Someone who smokes 3 to 4 days a week could be said to smoke 14 days in a usual month.</li>
+<li>Those smoking 1 to 2 days a week would be five days in a usual month.</li>
+<li>Those smoking 2 to 3 days a month would be 2.5 days in a usual month.</li>
+<li>Once a month or less would be 1 day in a usual month.</li>
+</ul>
+<p>Although these are estimates, they capture the quantitative nature of the measure and also keep individuals ordered in terms of the frequency with which they smoke. Our new variable is named USFREQMO which stands for the number of days per month.</p>
+<pre><code>
+recode2 = {1: 30, 2: 22, 3: 14, 4: 5, 5: 2.5, 6: 1}
+
+subset2[&#39;USFREQMO&#39;] = subset2[&#39;S3AQ3B1&#39;].map(recode2)</code></pre>
+<p>Print out the counts for each of the three variable to double check the frequencies are correct for S3AQ3B1, USFREQ, and USFREQMO</p>
+<p>So this makes more sense, while it is a categorical value, we&#39;re actually getting more information out of it than we had originally been given.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<p>Further Data Management</p>
+<p>There are many ways to tidy up your dataframe.</p>
+<ul>
+<li>rename column names to readable names.</li>
+<li>remove any columns you are not using.</li>
+<li>print out a count the number of columns and rows.</li>
+</ul>
+<h2>Rename column names to readable names</h2>
+<p>Create a new python file, name it lab2Ex.py</p>
+<p>Import pandas and numpy.</p>
+<p>Just after the import statements we will list the columns that we want to use, to do this we create a dictionary to refer to when we rename and ultimately remove any other columns.</p>
+<p>A dictionary are indexed by keys, which can be any immutable type. It is best to think of a dictionary as a set of key:value pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary {}.</p>
+<p>Placing a comma-separated list of key:value pairs within the braces adds initial key:value pairs to the new dictionary as seen below:</p>
+<pre><code>
+# SETUP
+#Columns that will be read from the CSV file and give them names that make sense
+nesarc_dict =  {
+  &#39;TAB12MDX&#39;: &#39;NICOTINE_DEPENDENCE&#39;,
+  &#39;CHECK321&#39; : &#39;SMOKING_STATUS&#39;,
+   &#39;S3AQ3B1&#39; : &#39;FREQUENCY_OF_SMOKING&#39;,
+   &#39;S3AQ3C1&#39; : &#39;QUANTITY_SMOKED&#39;,
+   &#39;S2AQ3&#39;: &#39;DRANK_ALCOHOL&#39;,
+   &#39;S2AQ8A&#39; : &#39;ALCOHOL_FREQUENCY&#39;
+}</code></pre>
+<p>Next we need to read in the data from the csv filter</p>
+<pre><code>#LOAD DATA
+nesarc_data = pandas.read_csv(
+  &#39;nesarc_pds.csv&#39;,
+  low_memory=False
+)</code></pre>
+<p>Now we can rename the columns using the dictionary to map the old name to the new name.</p>
+<p>We use a pandas function rename with the columns option as seen below:</p>
+<pre><code># RENAME COLUMNS
+print(&#39;data read, performing rename operation&#39;)
+nesarc_data.rename(columns=nesarc_dict, inplace=True)
+print(&#39;data fetched&#39;)
+
+#TEST THE RENAMING
+nesarc_data.columns
+print(&#39;counts for TAB12MDX - nicotine dependence in the past 12 months, yes=1&#39;)
+c1= nesarc_data[&quot;NICOTINE_DEPENDENCE&quot;].value_counts(sort=True)
+print (c1)</code></pre>
+<p>You should now see the following if the renaming worked correctly:</p>
+<p><img src="./img/07.png" alt=""></p>
+<p>Next we want to only keep in our nesarc dataframe the 6 columns we are working on in this lab.</p>
+<pre><code>
+#Update the dataframe to only contain the columns you do want to use in your analysis.
+nesarc_data = pandas.DataFrame(nesarc_data, columns = nesarc_dict.values())
+print(&#39;new column amount: &#39; + str(len(nesarc_data.columns)))</code></pre>
+<p>This should show you an output of 6 for the number of columns.</p>
+<p>Some useful properties and functions you can use on your dataframe:</p>
+<pre><code>nesarc_data.head
+nesarc_data.tail
+nesarc_data[&#39;NICOTINE_DEPENDENCE&#39;].describe()
+nesarc_data.dtypes</code></pre>
+<p>Apply what you have learned in this lab to your continuous assessment.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

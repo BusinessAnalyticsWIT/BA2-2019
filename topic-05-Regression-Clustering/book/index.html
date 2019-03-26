@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html"> Machine Learning  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-08">
+          Lab-08
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book/index.html">Lab-06 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book-ca/index.html">Lab-07 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-05-Regression-Clustering/book/index.html">Lab-08 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-08">
+            <h1>Regression</h1>
+<p>Continuous Assessment conducting regression analysis</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Regression</h1>
+<p>In lab06 you worked on hypothesis testing, this is the initial work conducted to determine relationships between variables. You worked on the association between a diagnosis of major depression and how much a person smokes.</p>
+<p>Explanatory variable MAJORDEPLIFE categorical
+Response variable NUMCIGMO_EST numerical</p>
+<p>Looking back at the output for lab06 step 2 we can see the following:</p>
+<p><img src="./img/09.png" alt=""></p>
+<p>A regression model can also be informative and help to predict a value.
+We can now use the intercept value and the coef value to determine how many cigarettes would be smoked by someone with a diagnosis of major depression.
+The linear equation is used to do this:</p>
+<pre><code>y = mx + b
+
+y = slope(x) + intercept
+
+NUMCIGMO_EST = 32.9033 (MAJORDEPLIFE) + 309.3644</code></pre>
+<p>This tells us that when MAJORDEPLIFE contains the value of 1 indicating major depression, then the number of cigarettes smoked  will be:</p>
+<pre><code>
+NUMCIGMO_EST = 32.9033(1) + 309.3644
+NUMCIGMO_EST = 342</code></pre>
+<p>When MAJORDEPLIFE contains the value of 0 indicating no diagnosis of major depression, then the number of cigarettes smoked will be:</p>
+<pre><code>
+NUMCIGMO_EST = 32.9033(0) + 309.3644
+NUMCIGMO_EST = 309</code></pre>
+<h2>For this lab we will predict the number of cigarettes smoked per day if someone is diagnosed as nicotine dependent.</h2>
+<p>Lets look at the linear relationship between nicotine dependence and the number of cigarettes smoked per month.</p>
+<ul>
+<li>The null hypothesis is nicotine dependence has no relationship with the number of cigarettes smoked per day.</li>
+</ul>
+<p>Nicotine Dependence is a binary categorical explanatory variable, and the number of cigarettes smoked per month is a quantitative response variable.</p>
+<p>Our research question is:</p>
+<ul>
+<li>Is having nicotine dependence (explanatory/categorical) associated with an increased number of cigarettes smoked (response/numerical)?</li>
+</ul>
+<p>Open the following python file save aa Lab08_regression.py</p>
+<ul>
+<li><a href="./archives/lab8_starter.py">lab8 starter python file</a></li>
+</ul>
+<p>At the end of this file we will add some code now to build a regression model.</p>
+<p>Take note in the code we must ensure that the variables NUMCIGMO_EST and TAB12MDX have no spaces &quot; &quot; and are in fact numerical.</p>
+<p>Next enter the following:</p>
+<pre><code>
+#regression for association between nicotine dependence and Number of cigarettes smoked per month
+print(&#39;OLS regression model for the association between nicotine dependence and number of cigarettes smoked per month&#39;)
+reg1 = smf.ols(&#39;NUMCIGMO_EST ~ TAB12MDX&#39;,data=subset2).fit()
+print(reg1.summary())</code></pre>
+<p>The response variable comes before the ~ tilda.</p>
+<p><img src="./img/06.png" alt=""></p>
+<p>The name of our response variable, the number of observations with valid values in both variables.
+The parameter estimates (for the line equation) and our p values are also highlighted in the image above.</p>
+<pre><code>y = mx + b
+
+y = slope(x) + intercept
+
+NUMCIGMO_EST = 152.47 (TAB12MDX) + 248.95</code></pre>
+<p>What does this tell us?</p>
+<p>the variable TAB12MDX contains the value 1 if the observation is nicotine dependent and the value zero if the observation is not nicotine dependent.</p>
+<p>We can place these values into the equation to get the number of cigarettes smoked for each group.</p>
+<pre><code>
+NUMCIGMO_EST = 152.47(0) + 248.95
+NUMCIGMO_EST = 248.95
+
+NUMCIGMO_EST = 152.47(1) + 248.95
+NUMCIGMO_EST = 401.42</code></pre>
+<p>Overall the model shows an F-Statistic value of 107.4 with a very small Prob (F stat) value ( that is less than our alpha value of .5 which tells us with 95% confidence that the null hypothesis is rejected) showing that the nicotine dependence does have a relationship with the number of cigarettes smoked per month and it is statistically significant.</p>
+<p>The R-Squared value however shows that the nicotine dependence variable only accounts for 5% of the variance in the number of cigarettes smoked.</p>
+<p>The intercept is 248.95 and is statistically significant with a p value of &lt;.01.</p>
+<p>Smokers without nicotine dependence smoke approximately 249 cigarettes per month.</p>
+<p>Smokers with nicotine dependence smoke approximately 401 cigarettes per month.</p>
+<p>We can support this finding with investigating the mean number of cigarettes per month for each group.</p>
+<pre><code>
+subset2 = subset2[[&#39;NUMCIGMO_EST&#39;,&#39;TAB12MDX&#39;]].dropna()
+
+print(&quot;Mean&quot;)
+ds1 = subset2.groupby(&#39;TAB12MDX&#39;).mean()
+print(ds1)
+
+print(&quot;STD&quot;)
+ds2 = subset2.groupby(&#39;TAB12MDX&#39;).std()
+print(ds2)</code></pre>
+<p>When you see the output from this piece of code the mean for observations that are not nicotine dependent (zero value in TAB12MDX) is the same as the calculated regression equation 248.95. The same applied when TAB12MDX holds a 1 value for nicotine dependence.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Multivariant Regression</h1>
+<p>We now have evidence that nicotine dependence is associated to the number of cigarettes smoked per month, we also know that having major depression is also associated to the number of cigarettes smoked?</p>
+<p>We can add the categorical explanatory variable MAJORDEPLIFE, it has two values, 0 when the observation does not have major depression and 1 when the observation does.</p>
+<p>Perhaps major depression is a confounder variable and is the true reason the number of cigarettes increases.</p>
+<p>Place the following code in before your reduced your subset2 down to only TAB12MDX and NUMCIGMO_EST.</p>
+<pre><code>
+#Multivariate linear regression
+print(&#39;OLS regression model for the association between nicotine dependence, major depression and number of cigarettes smoked per month&#39;)
+reg2 = smf.ols(&#39;NUMCIGMO_EST ~ TAB12MDX + MAJORDEPLIFE&#39;,data=subset2).fit()
+print(reg2.summary())</code></pre>
+<p><img src="./img/07.png" alt=""></p>
+<p>Looking at the results we can see that adding the MAJORDEPLIFE variable has increased the overall prob (F statistic) value. The MAJORDEPLIFE variable also shows a p value that is &gt; 0.05 and so is not statistically significant and the coefficient value is negative. This means we cannot reject the null hypothesis that regression model is not significant for both variables effects on number of cigarettes.</p>
+<p>However we can see that the nicotine dependence is still statistically significantly associated with number of cigarettes smoked having controlled for the existence of Major depression. We can conclude that Major depression is not a confounding variable in this case.</p>
+<p>If the p value for nictotine dependence changed and was no longer &lt; 0.05 it would mean that major depression was a confounding variable and was responsible for the association.</p>
+<p>Note: if a parameter estimate (coefficient) is negative and has a significant P value, then it means the variable has a negative association with the response variable. These are called parameter estimates because they are from our sample they are not from the complete population.</p>
+<p>For multiple regression we can keep adding categorical explanatory variables to check for confounding variables.</p>
+<p>For example the following shows the output from testing the association of age, gender, number of cigarettes, major depression and Dysthymia on the quantitative response variable: number of nicotine dependent symptoms.</p>
+<p><img src="./img/08.png" alt=""></p>
+<p>In this output we can see that only Major depression and number of cigarettes smoked have a statistically significant association with the number of nicotine dependent symptoms.</p>
+<h1>Centering Explanatory Variables</h1>
+<p>Where a quantitative explanatory variable is included in the model, it is necessary to centre the data. For example the age variable and number of cigarettes are quantitative and therefore each observation&#39;s age has the mean age subtracted from it and the number of cigarettes smoked for each observation has the mean number of cigarettes smoked subtracted from it, in order to include them in the model.</p>
+<p>It is important to remember even after controlling many additional explanatory variables in our model we can not prove causation.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Regression Modelling</h1>
+<p>Create a new file called Lab08_ca.</p>
+<p>The first relationship we are going to investigate is between the explanatory variable urbanrate and the response variable internetuserate from the gapminder data set.</p>
+<p>The null hypothesis is that urban rate has no relationship with the internet use rate.
+The alternate hypothesis is that a relationship exists between urbane rate and internet use rate.</p>
+<p>These are both quantitative variables. From our scatterplot in lab 5 you can see a relationship may exist between these variables.</p>
+<p>To identify the strength of this relationship we use linear regression.</p>
+<p><img src="./img/00.png" alt=""></p>
+<p>We now test the model by determining the equation of the best fit line.</p>
+<pre><code>commonly seen as:
+y = mx + b
+
+Linear regression equation:
+Ŷ = ß0 + ß1 * x</code></pre>
+<p>Y is the response variable
+X is the explanatory variable</p>
+<p>b/ß0 is the intercept parameter
+m/ß1 is the slope parameter</p>
+<p>Simple regression is where there is only one explanatory variable</p>
+<p>In python we use the ordinary less squares or OLS function from the stats model formula API library.</p>
+<p>Prior to doing this we must first replace any &quot; &quot; empty strings with NaN as we did before for both the urbanrate and internetuserate variables.
+Then we must convert both variables to_numberic so that python interprets them correctly in order to run the OLS function.</p>
+<p><img src="./img/02.png" alt=""></p>
+<p>Next enter the following code to perform the linear regression.</p>
+<pre><code>
+#regression for association between urbandrate and internet use rate
+print(&#39;OLS regression model for the association between urbanrate and internet use rate&#39;)
+reg1 = smf.ols(&#39;internetuserate ~ urbanrate&#39;,data=gapminder_data).fit()
+print(reg1.summary())</code></pre>
+<p>Look at the output now:</p>
+<p><img src="./img/01.png" alt=""></p>
+<p>Dep variable shows us the name of the response variable.
+We can see the number of observations that had valid data on both response and explanatory variables and we therefore included in analysis.</p>
+<p>The top right section of the summary informs us of the significance of the overall regression model. The R-Squared value tells us the proportion of the change in the response variable that is attributed to the explanatory variable. In this case 38 of the change in internet use rate can be explained by urban rate.</p>
+<p><img src="./img/05.png" alt=""></p>
+<p>The Prob (F-statistic) value is very small, considerably less than our alpha level of 0.5 (95% confidence). This tells us that we can reject the null hypothesis and conclude that urban rate is significantly associated with internetuserate.</p>
+<p>Now we look at the parameter estimates to calculate our best fit line.</p>
+<p><img src="./img/03.png" alt=""></p>
+<pre><code>
+y = mx + b
+
+y = slope(x) + intercept
+
+internetuserate = .72 (urbanrate) + (-4.90 )</code></pre>
+<p>The middle section of the summary explains the effect of the explanatory variable on the response variable. The size of the coefficient for the explanatory variable tell us the size of the effect. In this example when urbanrate goes up by 1 then internetuserate will increase by .7202</p>
+<p>Looking at the output for the coefficients there is a column labeled P&gt;|t| . This gives us the p value for our explanatory variable&#39;s association with the response variable. The p value is 0.000 which means that it is really small and less than .05 which is the generally accepted point at which you reject the null hypothesis. Here you would report the p value as p&lt;.0001 and thus the likelihood of these results (i.e showing a relationship between the variables) coming up in a random distribution of data is less than 5%. Conversely you can say that with 95% probability that the variable urbanrate is having some affect on internetuserate.</p>
+<p>We can now predict the value of Y when we know the value of X</p>
+<ul>
+<li>A country has 80% urbanisation, we can predict the value of y.</li>
+</ul>
+<pre><code>
+Ŷ = ß0 + ß1 * x
+
+ß1=0.72
+x=80
+ß0=-4.90
+
+ŷ= -4.90 + (0.72)(80)  
+
+= 52.7</code></pre>
+<p>We would expect 52.7 people out of every 100 to use the internet.</p>
+<p>For every one unit increase in x we would expect y to increase by .72</p>
+<p>Remember though this is the expected value that sits directly on the best fit line,  our data will differ to some extent. Expected data is not the same as observed data.</p>
+<p>This model is limited by the fact that we impose a causal model rather than test for causation (experimental study).</p>
+<p>For example, Canada has an urban rate of about 80%. However its Internet use rate is observed at 81.3 not 52.7, this is why we include an error term in our model. Statistics allows us to identify trends in the data, and use those trends to look at what we would expect our data to look like.</p>
+<h2>Assessment</h2>
+<p>Conduct the same analysis on the explanatory variable urabanrate and the response variable relectricperperson.</p>
+<ul>
+<li>Write the null and alternate hypothesis in your code file (commented out)</li>
+<li>Present the mean and std dev for both variables.</li>
+<li>Conduct regression analysis to determine the relationship</li>
+<li>Report on the relationship in terms of p value.</li>
+<li>Apply your findings to discover what would the residential electricty rate be for an urban rate of 80%</li>
+</ul>
+<p>Submit your files to moodle:
+- Lab08_regression.py
+- Lab08_ca.py</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

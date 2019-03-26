@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html"> Python, Anaconda, Data Exploration  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-01">
+          Lab-01
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-01-Python-Data-Exploration/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-02-Data-Management/book-a/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book/index.html">Lab-04 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-03-Visualisation/book-a/index.html">Lab-05 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book/index.html">Lab-06 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-04-Hypothesis-Testing/book-ca/index.html">Lab-07 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://Business-Analytics-2017.github.io/BA2///topic-05-Regression-Clustering/book/index.html">Lab-08 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-01">
+            <h1>Introduction to Python</h1>
+<p>Python is an interpreted, object-oriented, high level programming language. Python&#39;s simple, easy to learn syntax emphasises readability. It supports packages and modules with several specifically designed for data analysis.</p>
+<h1>Credits</h1>
+<p>This uses Coursera data management and visualisation course, by Wesleyan university</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Datacamp Python course</h1>
+<p>DataCamp offer many free online courses for learning data analysis. To start with the basics skills of the programming language Python you will start the Python course offered on DataCamp. Signup and login to begin the course. This module does not expect you to have this completed, it is simply a good starting point to pick up the basic skills to help with this module. You will be provided with the code you need to complete the lab work. However for the assignment it would be a good idea to improve your python skills beyond what the labs provide.</p>
+<p><a href="https://www.datacamp.com/learn-python-with-anaconda">https://www.datacamp.com/learn-python-with-anaconda</a></p>
+<p>Another similar online course is provided by codeacademy.</p>
+<p><a href="https://www.codecademy.com/learn/python">https://www.codecademy.com/learn/python</a></p>
+<p>The data school website has some useful posts on python and the use of pandas for data analysis.
+Here is a good quick reference guide for python:</p>
+<p><a href="http://www.dataschool.io/python-quick-reference">http://www.dataschool.io/python-quick-reference</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Introduction to Python using Spyder</h1>
+<p>Python is a programming language, and you&#39;ll be writing your Python code in the programming environment called Spyder. The Anaconda distribution simplifies the installation process by including Python, Spyder, and other packages and tools in one installation.</p>
+<p><img src="./img/01.png" alt=""></p>
+<h2>Installing Anaconda</h2>
+<ul>
+<li>Go to <a href="http://anaconda.com/download">http://anaconda.com/download</a></li>
+<li>Scroll down to find your operating system</li>
+</ul>
+<p><img src="./img/02.png" alt=""></p>
+<ul>
+<li>For Windows, see <a href="http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows">http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows</a> to find whether you computer has a 32-bit or 64-bit version of windows.</li>
+<li><p>Click on the appropriate 32/64-bit installer of Python 3.7</p>
+</li>
+<li><p>For Mac OS download the graphical installer</p>
+</li>
+</ul>
+<p><img src="./img/03.png" alt=""></p>
+<ul>
+<li>Save the file to your computer.</li>
+<li>Double click on the downloaded file to open it.</li>
+<li>Follow the on screen instructions, leaving options as they are currently set. This finishes the installation process.</li>
+<li>Next check for updates using Conda. Conda is one of the extras that is installed through the distribution Anadconda. It handles things like updates, set-up, and package installation through a command line interface. If there are many updates this can take 10 minutes or more.</li>
+</ul>
+<h2>Windows</h2>
+<ul>
+<li>Open Anaconda Command Prompt by typing Anaconda in the search box in the start menu.</li>
+<li>Type &quot;conda update conda&quot; at the command prompt, typing &quot;y&quot; for Yes and then pressing enter when it asks you to proceed. Your installation may identify different packages that you need updated.</li>
+</ul>
+<p><img src="./img/05.png" alt=""></p>
+<ul>
+<li>After it completes, type &quot;conda update anaconda&quot; at the command prompt. If it prompts you to proceed, type &quot;Y&quot; for Yes and press enter.</li>
+<li>After that type &quot;conda install seaborn&quot; and &quot;Y&quot; again.</li>
+<li>After that completes, you can then close the command prompt window.</li>
+</ul>
+<h2>MAC</h2>
+<ul>
+<li>Open Terminal.</li>
+<li>Type &quot;conda update conda&quot; at the command prompt, typing &quot;y&quot; for Yes and then pressing enter when it asks you to proceed. Your installation may identify different packages that you need updated.</li>
+</ul>
+<p><img src="./img/05.png" alt=""></p>
+<ul>
+<li>After it completes, type &quot;conda update anaconda&quot; at the command prompt. If it prompts you to proceed, type &quot;Y&quot; for Yes and press enter.</li>
+<li>After that type &quot;conda install seaborn&quot; and &quot;Y&quot; again.</li>
+<li>After that compeltes, you can then close the command prompt window.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Getting to know Spyder</h1>
+<p>You will write your programs and run them inside the Spyder IDE.</p>
+<p><img src="./img/06.png" alt=""></p>
+<p>On Windows, in the search box on the start menu, type Spyder. Click on the program.
+On a Mac, use Spotlight to find the program Launcher. Click Launch on the Spyder-app entry.</p>
+<p>After Spyder has launched you should see an interface that is organised into multiple windows (marked with red rectangles below) each of which has multiple tabs (marked with green rectangles below).</p>
+<p><img src="./img/07.png" alt=""></p>
+<p>The default screen has three windows visible: Editor, Inspector, and Console.
+If you accidently close a window or change the layout, you can revert to the default by clicking &quot;View&quot; on the menu bar and then clicking &quot;Reuse Previous Layout&quot; or in &quot;Panes&quot; choose the pane you just accidently closed.</p>
+<ul>
+<li><p>Editor: where you write and save sequences of commands, essentially where you will write your full program. In the sample that shows in the editor, anything after # is a comment, meaning that Python will ignore that text. Three double quotation marks are a special type of comment that spans multiple lines.</p>
+</li>
+<li><p>Console: where Python runs your code.  Spyder offers two choices for a console, a basic one and an IPython (Interactive Python) console. It is the IPython console we want to use. The prompt (where you can type in a command) for an IPython console is :</p>
+</li>
+</ul>
+<p><img src="./img/08.png" alt=""></p>
+<ul>
+<li><p>Object Ispector: On starting Spyder, the object inspector just gives you a link to the tutorial (this can be useful if you want to know more details about using Spyder). The rest of the time, this window will continue to give you information about a function such as the documentation from the help files and tells you what parameters the function takes.</p>
+</li>
+<li><p>Variable Explorer: shows you the value and type of any variables you have created. This is useful when you are trying to debug your code.</p>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Editing</h1>
+<p>The first task is to set your working directory. This is done by clicking on the folder icon in the top right corner above the object inspector.</p>
+<p><img src="./img/09.png" alt=""></p>
+<p>Browse to the folder where you wish to keep all of your python files and data files. This is the folder from which python files are executed and where you can import and run data sets.</p>
+<p>The program/script editor works similar to other editors as well as colour coding your program to help you write and debug it.</p>
+<ul>
+<li>Blue font indicates a Python keyword.</li>
+<li>Dark red are for numbers.</li>
+<li>Green is used for strings.</li>
+<li>Purple is used for a value in an option value pair or is a function.</li>
+<li>Grey font indicates comments about the program.</li>
+</ul>
+<p><img src="./img/11.png" alt=""></p>
+<p>Strings in Python consists of alphanumeric or other characters enclosed by single or double quotation marks.</p>
+<p>Comments start with a number sign <code>#</code> or a <code>£</code> symbol and they are not analysed by Python.</p>
+<p>If you write a line of code that is incorrect, you will probably be provided with an exclamation point and a red circle ot the left of a line or lines of code. Hovering over the exclamation point with your mouse provides code analysis and helps you to debug your program.</p>
+<p>Sometimes the analysis is helpful and other times it simply indicates that you have written invalid syntax.</p>
+<p>Python is case sensitive, so be sure to always use the correct capitalisation when you write your programs.</p>
+<p><img src="./img/10.png" alt=""></p>
+<h2>Writing your first program</h2>
+<p>As the first line of your Python program, you will need to import any libraries that you will be using to conduct data analysis. Common libraries used for data analysis in Python include Pandas and NumPy.</p>
+<pre><code>
+import pandas
+import numpy</code></pre>
+<p>In the blank editor type in the two import statements.</p>
+<p>Libraries, sometimes called packages, are collections of Python functions that others have written to add on to the basic functionality that is built into Python.</p>
+<p>Next are a few basic steps that all statistical packages require when you begin to write a program.</p>
+<p>First you will load the data that you&#39;ll be working with, which is the common form of a comma separated values file and has the extension .csv. This step is also sometimes called reading in or calling in the data set.</p>
+<p>To load in data you first must download the file.</p>
+<p><a href="./archives/nesarc_pds.rar">nesarc file</a></p>
+<p>Save the file into the working directory you setup in this step.</p>
+<p><a href="./archives/NESARC_codebook.pdf">nesarc codebook</a>
+Enter the following code to load the data file:</p>
+<pre><code>
+nesarc_data = pandas.read_csv(&#39;nesarc_pds.csv&#39;, low_memory=False)</code></pre>
+<p>nesarc_data is the name I have chosen to call our data frame (Python object). You can call it anything you wish, throughout this and future labs we will use the name nesarc_data. We set the data frame equal to the function pandas.read_csv to tell python that we will be reading in a .csv file using the Pandas library.</p>
+<p>In Python function names are followed by a set of ().</p>
+<p>The name of the data file nesarc_pds.csv is included within the parenthesis, and also within either single or double quotation marks. The name of the data set must match exactly the actual file name.</p>
+<p>It is a good idea to add parameter low_memory and set it to false. Without this it is common to get a warning when you run your program because Pandas tries to determine what data type to set for each variable by analyzing the data in each column, this uses a lot of memory. Setting this parameter can increase efficiency when running the program.</p>
+<p>All of the code you write after this line will use this data set.</p>
+<p>Save the program by choosing File-&gt;Save. The default name is Untitled but you should rename it Lab04. It will be saved to the working directory.</p>
+<p>Add the following code and we can see the number of rows (observations/individuals) in the data set, and the number of columns, that is variables.</p>
+<pre><code>print (len(nesarc_data)) #number of observations (rows)
+print (len(nesarc_data.columns)) # number of variables (columns)</code></pre>
+<p><img src="./img/12.png" alt=""></p>
+<p>If we save and run this program by highlighting the code and selecting, run selection or current line within the Run menu, you can see here that Nesarc includeds 3,008 variables measured on 43,093 individual participants.</p>
+<p><img src="./img/13.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Frequency distribution</h1>
+<p>I&#39;m interested in looking at the association between how much a person smokes, that is the quantity and frequency of smoking, and the presence or absence of nicotine dependence.</p>
+<p>To investigate this we need to look in detail at the code book for the nesarc data set.</p>
+<ul>
+<li><a href="./archives/NESARC-Code-Book.pdf">NESARC Code Book</a></li>
+</ul>
+<p>This document contains a table of contents that sets out the different sections of interest within the dataset. For this lab we will be looking at section 3A or page 82 for Tobacco use and dependence. It describes each variable associated to Tobacco use and dependence. The final section of the code book also provides information on diagnosis such as nicotine dependence.</p>
+<p>It is the name of the variable (e.g. S3AQ1A) we are interested in rather than the longer descriptive name (e.g. Ever Smoked 100+ Cigarettes). For each variable the code book also shows you the counts for each possible value per variable. For example for S3AQ1A the possible values are from 5 to 80, 99 means an unknown age, and BL or blank is not applicable or unknown.</p>
+<p><img src="./img/14.png" alt=""></p>
+<p>To generate frequency distributions we use the value counts function. It is part of the Panda&#39;s library. We always need to load this library each time you run Python in order to use the function. We have done this already in the first line of the program.</p>
+<p>Use the value counts function to generate frequency counts for the nicotine dependence in the last 12 months variable (TAB12MDX):</p>
+<pre><code>
+c1= nesarc_data[&quot;TAB12MDX&quot;].value_counts(sort=False)</code></pre>
+<p>This statement uses the value_counts function to generate a frequency count for the variable called TAB12MDX (surrounded by single or double quotation marks wihtin square brackets) in the nesarc_data set. It places the analysis in the variable c1. Each variable only exists as part of a data set so we must tell python what data set we are analysing. Dot notation should familiar to you.
+Functions allow settings to be specified inside the parenthesis, this function includes sort=False so that the data is sorted in the order of the original values rather than by the actual counts.</p>
+<p>To get percentages for each value based on those counts. The code is similar, we can the new variable p1 and we also include the setting normalize-True within the functions parenthesis separated by a comma.</p>
+<pre><code>
+p1= nesarc_data[&quot;TAB12MDX&quot;].value_counts(sort=False, normalize=True)</code></pre>
+<p>To get counts or percentages for each variable we are interested in separate lines of code need to be written. We should also pair each line of code with a print line of code.</p>
+<pre><code>
+c1= nesarc_data[&quot;TAB12MDX&quot;].value_counts(sort=False)
+print (c1)
+p1= nesarc_data[&quot;TAB12MDX&quot;].value_counts(sort=False, normalize=True)
+print (p1)</code></pre>
+<p>Save and run this program.</p>
+<p>You can confirm  the correct counts by looking in the code book for the variable TAB12MDX (page 475).</p>
+<h2>Exercises</h2>
+<p>Now write the code necessary to find the counts and percentages for the following variables:</p>
+<ul>
+<li>CHECK321</li>
+<li>S3AQ3B1</li>
+<li>S3AQ3C1</li>
+</ul>
+<p>Read in your code book to see what these variables relate to.</p>
+<p>From the File menu choose Save and then Run from the Run menu.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Frequencies</h1>
+<p>Your code from the previous step should look like this:</p>
+<pre><code>
+c1= nesarc_data[&quot;TAB12MDX&quot;].value_counts(sort=False)
+print (c1)
+
+p1= nesarc_data[&quot;TAB12MDX&quot;].value_counts(sort=False, normalize=True)
+print (p1)
+
+c2= nesarc_data[&quot;CHECK321&quot;].value_counts(sort=False)
+print (c2)
+
+p2= nesarc_data[&quot;CHECK321&quot;].value_counts(sort=False, normalize=True)
+print (p2)
+
+c3= nesarc_data[&quot;S3AQ3B1&quot;].value_counts(sort=False)
+print (c3)
+
+p3= nesarc_data[&quot;S3AQ3B1&quot;].value_counts(sort=False, normalize=True)
+print (p3)
+
+c4= nesarc_data[&quot;S3AQ3C1&quot;].value_counts(sort=False)
+print (c4)
+
+p4= nesarc_data[&quot;S3AQ3C1&quot;].value_counts(sort=False, normalize=True)
+print (p4)</code></pre>
+<h2>Readability of Output</h2>
+<p>When you run this code the distribution counts and percentages will be displayed in the console window. It is not very easy to determine one variable from the next. To help with the output for the reader it is useful to place a further print line of code before the counts and percentages are printed out.</p>
+<pre><code>print(&#39;counts for TAB12MDX - nicotine dependence in the past 12 months, yes=1&#39;)</code></pre>
+<p>This line of code should be placed just before the first line seen above.</p>
+<p>Do this now for each variable c2, p2, c3, p3, c4 and p4. Use the code book to find the long description for each variable.</p>
+<p>Save your work. Test this by highlighting just the last three lines of code and choose run selection or current from the run menu.</p>
+<p><img src="./img/15.png" alt=""></p>
+<p>You should now see just the &#39;percentages for S3AQ3C1 - usual quantity when smoke cigarettes&#39; with the percentages shown for each quantity.</p>
+<p>As with most programming languages there are multiple ways of doing the same task. We could use the function groupby instead of value_counts.</p>
+<pre><code>
+ct1 = nesarc_data.groupby(&#39;TAB12MDX&#39;).size()
+print(ct1)</code></pre>
+<p>This will output the counts grouped by the values in the Nicotine Dependence variable TAB12MDX which we know to be 0 and 1</p>
+<p><img src="./img/18.png" alt=""></p>
+<p>To ask for the percentages with the groupby counts, the code is similar.</p>
+<pre><code>
+pt1 = nesarc_data.groupby(&#39;TAB12MDX&#39;).size() * 100 / len(nesarc_data)
+print(pt1)</code></pre>
+<h2>Console Window</h2>
+<p>The console window shows the commands, output and error messages. Run all of the code you have written. There should be no error messages in your console window.</p>
+<p>Commonly a variable name may be mistyped and this error shows in the console as KeyError: &#39;S3Ac3B1&#39;</p>
+<p><img src="./img/16.png" alt=""></p>
+<p>If you do find errors then go back to your program and correct the errors, save the code and run again.</p>
+<p>Our variables names are a bit cryptic and thus we might want our print statements to be a bit more interpretable. The print function in our code is just asking for the text strings, we can change them to read however we would like. We can see that we added additional information as headers for each variable.</p>
+<p>For variable TAB12MDX nicotine dependence in the past 12 months the code book tells us that one means yes and zero means no. We can see in our counts that we have 38,131 resondents that have no nicotine dependence, when we look at the percentages output that is  88.4% of the sample. While 4,962 or approximatley 11.5% of respondents do have a nicotine dependence.</p>
+<p><img src="./img/17.png" alt=""></p>
+<p>When you scroll down to usual quantity when smoked cigarettes, S3AQ3C1, you find the values are displayed in an incorrect order. This is happening because Python is reading the values as strings or objects rather than as numeric because it encountered empty cells when reading the column for that variable. To correct this, we can add a line of code to our program converting the variable to numeric before calling on the value_counts function.</p>
+<pre><code>
+nesarc_data[&#39;S3AQ3C1&#39;] = pandas.to_numeric(nesarc_data[&#39;S3AQ3C1&#39;],errors=&#39;coerce&#39;)</code></pre>
+<p>This line of code should come after the dataset is loaded and before the variable is used to produce output.
+Add one of these lines for the S3AQ3C1 variable used in our program.
+Now set the sort option to True for each count and percentage then save and run your program. Each output should be displayed in order of the greatest count or percentage first going in descending order.</p>
+<h2>Tips</h2>
+<p>Remember the importance of comments in all programming. Python is no different. The # symbol is used to comment out text and it is good practice to add a line of commentry to sections of your code explaining what each section is doing. They help to keep track of decisions you have made and actions you take.</p>
+<p>Remember to save each time you change your program.</p>
+<p>Add commentry to your code now. They should appear in grey in your program.</p>
+<p>It can be difficult to always type variable names in the correct case, some may be in upper case and others in lower case. Python is case sensitive so this can give your program unnecessary errors. You can use the map function to convert all variables in your dataframe to upper or lower case. Place this line of code just after you have loaded the data set.</p>
+<pre><code>
+nesarc_data.columns = map(str.upper, nesarc_data.columns)
+nesarc_data.columns = map(str.lower, nesarc_data.columns)</code></pre>
+<p>To avoid run time error messages you can put the following set_option line of code in your program usually place it after you load the data set.</p>
+<pre><code>
+pandas.set_option(&#39;display.float_format&#39;,lambda x:&#39;%f&#39;%x)</code></pre>
+<p>Pandas documentation is available online for you to investigate futher options and settings for all the functions we use.</p>
+<p><a href="http://pandas.pydata.org/pandas-docs/version/0.20/api.html">http://pandas.pydata.org/pandas-docs/version/0.20/api.html</a></p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
