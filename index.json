@@ -1,0 +1,405 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "course",
+  "title" : "Business Analytics II ",
+  "img" : "course.png",
+  "videoid" : "",
+  "objectives" : "<p>You will advance your skills in conducting business analytics on structured data using Python. You will be introduced to analytics on unstructured data. You will investigate data mining techniques such as predicting customer behaviour, performance management, simulation and optimisation of business processes.</p>",
+  "folder" : "business-analytics-2-2019",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "topics" : [  {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Module Structure ",
+  "img" : "talk-1/module-structure.png",
+  "videoid" : "",
+  "objectives" : "<p>Details on the breakdown of continuous assessment over the 12 weeks.</p>",
+  "folder" : "topic-00-Module-Structure",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "module-structure",
+  "img" : "module-structure.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-1",
+  "link" : "module-structure.pdf",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Python, Anaconda, Data Exploration ",
+  "img" : "talk-1/tools-languages.png",
+  "videoid" : "",
+  "objectives" : "<p>Introduction to Python and the Anaconda IDE, and running frequency distributions using Python language.</p>",
+  "folder" : "topic-01-Python-Data-Exploration",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Tools and languages ",
+  "img" : "tools-languages.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-1",
+  "link" : "tools-languages.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Exploratory Data analysis ",
+  "img" : "Exploratory-data-analysis.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-2",
+  "link" : "Exploratory-data-analysis.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Continuous assessment ",
+  "img" : "CA_2018.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-3-ca",
+  "link" : "CA_2018.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-01",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Python is an interpreted, object-oriented, high level programming language. Python&#39;s simple, easy to learn syntax emphasises readability. It supports packages and modules with several specifically designed for data analysis.</p>",
+  "folder" : "book-a",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Data Management ",
+  "img" : "talk-1-data-management/Data-management.png",
+  "videoid" : "",
+  "objectives" : "<p>Cleaning, Distributions, Frequencies, Descriptive Statistics, Filtering</p>",
+  "folder" : "topic-02-Data-Management",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Data-management",
+  "img" : "Data-management.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-1-data-management",
+  "link" : "Data-management.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Data Management II ",
+  "img" : "Data-management.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-2-data-management",
+  "link" : "Data-management.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-02",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Refining research questions is essential in order to focus your analysis and discover the answer to a specific well thought out research question.</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-03",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>An important step in the data preparation stage of analytics includes the creation of new data, usually in the form of additional variables.</p>",
+  "folder" : "book-a",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Visualisation of Data ",
+  "img" : "talk-1/Visualisations_1.png",
+  "videoid" : "",
+  "objectives" : "<p>Presentation of data using appropriate charts for categorical and numerical data</p>",
+  "folder" : "topic-03-Visualisation",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Data Visualisation using Python Libraries ",
+  "img" : "Visualisations_1.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-1",
+  "link" : "Visualisations_1.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Seaborn library ",
+  "img" : "Visualisations_2.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-2",
+  "link" : "Visualisations_2.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Seaborn cheatsheet ",
+  "img" : "seaborn_cheatsheet.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-3",
+  "link" : "seaborn_cheatsheet.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-04",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>The solution to lab03 is available here:</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-05",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>The solution to lab04 is available here:</p>",
+  "folder" : "book-a",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Testing your hypothesis ",
+  "img" : "talk-1/hypothesis_testing.png",
+  "videoid" : "",
+  "objectives" : "<p>Defining null and alternate hypothesis and conducting analysis to determine if associations exist between variables.</p>",
+  "folder" : "topic-04-Hypothesis-Testing",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Hypothesis Testing ",
+  "img" : "hypothesis_testing.png",
+  "videoid" : "none",
+  "objectives" : "<p>Descriptive statistics include frequencies and graphical presentation of variables, calculations of</p>",
+  "folder" : "talk-1",
+  "link" : "hypothesis_testing.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>The solution to lab05 is available here:</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-07",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Work on your continuous assessment in your three hours of labs this week.</p>",
+  "folder" : "book-ca",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Machine Learning ",
+  "img" : "talk-1/Regression-modeling.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "topic-05-Regression-Clustering",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Regression-modeling",
+  "img" : "Regression-modeling.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-1",
+  "link" : "Regression-modeling.pdf",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  }
+ ]
+  }
+

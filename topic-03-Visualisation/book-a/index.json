@@ -1,0 +1,59 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-05",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>The solution to lab04 is available here:</p>",
+  "folder" : "book-a",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Graphing quantitative response variables.",
+    "shortTitle": "Lab-05",
+    "contentMd" : "#Graphing quantitative response variables.\r\n\r\n\r\nThe solution to lab04 is available here:\r\n\r\n- [lab4 python file](./archives/lab04.py)\r\n"
+    },
+  
+    {
+    "title": "#Quantitative Response variables",
+    "shortTitle": "01",
+    "contentMd" : "#Quantitative Response variables\r\n\r\nIn the previous lab you graphed two variables where the response variable was categorical, in one example the explanatory variable was numerical and one where the explanatory variable was categorical.\r\n\r\nFor this example we will look at the scenario where the response variable is quantitative.\r\n\r\n#Gapminder dataset\r\n\r\nNow we are interested in the associated between the percent of the population living in urban setting within each country, and in the country's rates of internet use, that is the percent of people which access to the world wide web.\r\n\r\nHere are the details from the codebook for the variables we are interested in.\r\n\r\n![](./img/00.png)\r\n\r\nFor this research question both the response and explanatory variables are quantitative variables.\r\n\r\nA bar chart would not work in this situation, the graph of choice is the scatterplot.\r\n\r\n![](./img/01.png)\r\n\r\nA scatterplot by definition is a graph of plotted point that show the relationship between two quantitative variables.\r\n\r\nIn a scatterplot, data for each observations explanatory and response variable are plotted.\r\n\r\nThis scatterplot shows a sample of 11 observations according to the relationship between height and weight.\r\n\r\nSince we are dealing with a new data set the Gapminder data set, we will start a new python program.\r\n\r\nInclude your import statement as before.\r\n\r\nSave the gapminder.csv file to your Spyder working directory.\r\n\r\n- [Gapminder file](./archives/gapminder.csv)\r\n\r\n##Exercises\r\n\r\nWrite the statement necessary to read in the gapminder.csv File\r\n\r\nNext we need to make sure that both variables are seen as numeric by Python. Look back on previous labs to find the correct syntax for using the to_numeric() function in the Pandas library.\r\n\r\nIf the conversion is not working it may be because there are spaces or blanks in some observations for one or both of these variables.\r\n\r\nYou may have to use .replace() function to find any ' ' and replace with numpy.NaN again check back on previous lab files.\r\n\r\nOnce you have the conversions complete you can then describe each variable.\r\n\r\nWrite the statements to describe each variable and print the output so you can see the count, mean, standard deviation etc for each variable.\r\n"
+    },
+  
+    {
+    "title": "#Scatter plot",
+    "shortTitle": "02",
+    "contentMd" : "#Scatter plot\r\n\r\nYou should see the following descriptive stats for each variable:\r\n\r\n\r\n![](./img/03.png)\r\n\r\n![](./img/04.png)\r\n\r\nWe can see for urban rate, the mean percent of the population living in Urban settings is about 57%, the standard deviation is about 24%, suggesting that there is quite a bit of variability from country to country in terms of the population living in urban settings.\r\n\r\nIs there a relationship between the two variables?\r\n\r\nWe can explore this question using a scatterplot.\r\n\r\nPython provides the capability to produce a scatterplot using the seaborn library.\r\n\r\n~~~\r\n\r\n#basic scatterplot\r\n\r\nscat1 = seaborn.regplot(x=\"urbanrate\", y=\"internetuserate\", fit_reg=False, data=gapminder_data)\r\nplt.xlabel('Urban Rate')\r\nplt.ylabel('Internet Use Rate')\r\nplt.title('Scatterplot for the Association between Urban Rate and Internet Use Rate')\r\n\r\n\r\n~~~\r\n\r\nThe explanatory variable is urban rate so it goes on the X axis, the response variable Internet Use Rate goes on the Y axis. For this example we ask python to suppress the line of best fit. Again we use the xlabel, ylabel and title functions.\r\n\r\n![](./img/05.png)\r\n\r\nHere we can see what looks like a positive relationship between urban rate and internet use rate. Change the code slightly so that the best fit line is displayed.\r\n\r\n![](./img/06.png)\r\n\r\n##Exercises\r\n\r\nTry plotting a scatter chart now for the explanatory variable incomeperperson with the response variable internetuserate.\r\nWhat relationship does this chart present? Is it stronger or weaker than the previous relationship?\r\n\r\nHow closely do the dots follow the linear pattern?\r\n\r\nThese examples show the different types of relationships presented by a scatter plot.\r\n\r\n![](./img/07.png)\r\n\r\nNot all relationships can be classified as positive or negative. Also if you can't plausibly put a line through the dots, if the dots are just a cloud of specks on a graph, then there may be no relationship.\r\n"
+    },
+  
+    {
+    "title": "#Scatter Plots continued",
+    "shortTitle": "03",
+    "contentMd" : "#Scatter Plots continued\r\n\r\n\r\nCreate the scatter plot for response variable \"hivrate\" and explanatory variable \"incomeperperson\"\r\n\r\nRemember to make sure both variables are numeric.\r\n\r\n![](./img/08.png)\r\n\r\nHere the dots seem to clump in the lower part of the graph. In this case it is hard to determine the relationship here.\r\n\r\nTo get a better sense of whether or not there is a relationship between these two variables, we could try and convert the incomeperperson explanatory variable into a categorical variable.\r\n\r\nTo do this we have to do some data management.\r\n\r\n- use the qcut function to split the incomeperperson variable into four equal parts, call the new variable incomegrp4.\r\n- display the frequency counts for the new variable and print them to the console.\r\n\r\n![](./img/09.png)\r\n\r\nNow you can see the distribution of the incomegrp4 variable. The four ordered groups we created, show that there are 48 in the lowest income group, 47 in the next 25%, 47 in the next 25% and 48 in the top 25%.\r\n\r\nWith this new categorical explanatory variable, you can now create the last type of bivariate graph, that is the categorical to quantitative bar chart.\r\n\r\nThe code to use is identical to that used for the categorical to categorical graph but what will be plotted on the y-axis is the mean HIV rate.\r\n\r\n~~~\r\n#bivariate bar graph C->Q\r\nseaborn.factorplot(x='incomegrp4',y='hivrate',data=gapminder_data,kind='bar',ci=None)\r\nplt.xlabel('income group')\r\nplt.ylabel('mean HIV rate')\r\n\r\n~~~\r\n\r\n![](./img/10.png)\r\n\r\nIn this bar chart we can see the differences in HIV rate based on the counties income per person groups.\r\n"
+    },
+  
+    {
+    "title": "#Bivarate chart options",
+    "shortTitle": "04",
+    "contentMd" : "#Bivarate chart options\r\n\r\n\r\n##Categorical to categorical graph\r\n\r\nExplanatory variable on the X axis (categorical), the proportion of our response variable on the Y axis (2 group categorical).\r\n\r\n![](./img/11.png)\r\n\r\n##Categorical to Quantitative graph\r\n\r\nExplanatory variable on the X axis (Categorical), Mean of the response variable (quantitative) on the Y axis.\r\n\r\n![](./img/12.png)\r\n\r\n##Quantitative to Quantitative graphs\r\n\r\nExplanatory variable values on the X axis (quantitative), response variable values on the Y axis (quantitative)\r\n\r\n![](./img/13.png)\r\n"
+    },
+  
+    {
+    "title": "#continuous assessment",
+    "shortTitle": "05",
+    "contentMd" : "#continuous assessment\r\n\r\nApply what you have learned to your continuous assessment work.\r\n"
+    }
+  
+  ]
+  }
+
