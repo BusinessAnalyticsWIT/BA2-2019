@@ -276,6 +276,10 @@ print(&quot;STD&quot;)
 ds2 = subset2.groupby(&#39;TAB12MDX&#39;).std()
 print(ds2)</code></pre>
 <p>When you see the output from this piece of code the mean for observations that are not nicotine dependent (zero value in TAB12MDX) is the same as the calculated regression equation 248.95. The same applied when TAB12MDX holds a 1 value for nicotine dependence.</p>
+<p>Remember when you calculate the mean using the groupby on a categorical variable like TAB12MDX there are only two values so it shows you the mean for 0 that is not nicotine dependent and 1 for nicotine dependent.
+If you want to get the mean for a numerical variable you use the following :</p>
+<pre><code>
+dataframe_name[&#39;variable_name&#39;].mean()</code></pre>
 
           </div>
         
