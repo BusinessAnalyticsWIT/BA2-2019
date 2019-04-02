@@ -396,6 +396,38 @@
   "los": [
    ]
 
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Clustering ",
+  "img" : "clustering.png",
+  "videoid" : "none",
+  "objectives" : "<p>Discovering natural groupings in a dataset</p>",
+  "folder" : "talk-2",
+  "link" : "clustering.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-08",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Continuous Assessment conducting regression analysis</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
     } 
    ]
 
