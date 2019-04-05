@@ -428,6 +428,22 @@
   "los": [
    ]
 
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-09",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Continuous Assessment conducting cluster analysis</p>",
+  "folder" : "book-a",
+  "link" : "index.html",
+  "los": [
+   ]
+
     } 
    ]
 
