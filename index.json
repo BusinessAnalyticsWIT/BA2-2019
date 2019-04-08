@@ -447,6 +447,54 @@
     } 
    ]
 
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Introduction to the use of classification for prediction ",
+  "img" : "talk-1-classification/classification.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "topic-06-Classification",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Classification ",
+  "img" : "classification.png",
+  "videoid" : "none",
+  "objectives" : "<p>Machine learning teaches computers to do what comes naturally to humans: learn from experience.</p>",
+  "folder" : "talk-1-classification",
+  "link" : "classification.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "classification",
+  "img" : "classification.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-2-classification",
+  "link" : "classification.pdf",
+  "los": [
+   ]
+
+    } 
+   ]
+
   }
  ]
   }
