@@ -492,6 +492,22 @@
   "los": [
    ]
 
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-10",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>More Excel - binary classification </p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
     } 
    ]
 
