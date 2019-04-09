@@ -123,6 +123,14 @@ html, body {
           04
         </a>
       
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
     </div>
   </div>
 
@@ -344,6 +352,124 @@ Negative predictive value
 
 .792/.7925 = 99.937%</code></pre>
 <p>I have a 99.937% chance of not having cancer.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Area Under the Curve</h1>
+<p>The area under the Receiver Operating Characteristic or ROC curve, also called the AUC, is the most widely used performance metric for binary classification models.</p>
+<p>Its two great strengths are, first, that AUC results do not change in the incidents of the actual condition, nor is AUC affected by changes in the relative cost of the two different types of binary classification errors, false positives and false negatives. Therefore when either future incidents or the cost of classification errors or both are unstable or cannot be known, the AUC is generally the best possible performance metric available.</p>
+<p>The AUC metric ranges from a minimum of one-half (.5) to a maximum of one. An AUC of one-half indicates total uncertainty about classification. An AUC of one would be classification with zero errors, a theoretical ideal that no one expects you to meet. A normal good to very good area under the curve is typically in the .65 to .85 range.</p>
+<p>A common technique in data analysis is to develop a binary classification model by varying certain parameters so as to maximise the AUC on a sample data set of data with known outcomes, often called a training set.</p>
+<p>Download the following data set:</p>
+<p><a href="./archives/AUC-for-ROC-Curve.xlsx">AUC</a></p>
+<p>The ROC helps to measure the effectiveness of our model at each threshold. To make a ROC curve you start with a collection of events. In this spreadsheet, there are seven events numbered one through seven. In column B, rows 20 through 26. Each event is assigned a score (C20-C26). Each event also has a binary outcome shown in column D20-D26).</p>
+<p>To generate an ROC curve, we need to know what the true outcomes are and then we need to know how effective our model is at each possible threshold for positive classification.</p>
+<ul>
+<li><p>The way we do this is we rank all of the events by the score (this is already done for you in the spreadsheet).</p>
+</li>
+<li><p>Now you must perform the classification at each threshold.</p>
+</li>
+<li><p>At the first threshold which is a score above 3 there are no occurrences, and everything would be classified as negative.</p>
+</li>
+<li><p>At the next threshold which has a score of 3 or above, figure out how many false positives there would be and fill in cell E20.</p>
+</li>
+<li><p>Next figure out how many true positives there would be and fill in cell F20.</p>
+</li>
+<li><p>Work you way through each threshold calculating and filling in the appropriate cells for the false positives and true positives</p>
+</li>
+</ul>
+<p>Here you can see we counted at the threshold of 3 there would be no false positives, and 1 true positive.
+At the threshold of 2, there would be no false positives, and 2 true positives.
+At the threshold of -2, there would be 3 false positives, and 3 true positives.</p>
+<p><img src="./img/15.png" alt=""></p>
+<h2>False positive rate and True positive rates</h2>
+<p>Remember this is calculated as:</p>
+<ul>
+<li>The number of false positives at a threshold divided by the total number of negative outcomes.</li>
+<li>The number of true positives at a threshold divided by the total number of positive outcomes.
+~~~
+cell G19 should have the following formula:</li>
+</ul>
+<p>=E19/$E$28</p>
+<pre><code>The same formula should apply for each row down to G26.
+
+Then write the formula to calculate the true positive rate.
+
+
+##Area under the curve
+
+Now that you have calculated the false positive and true positive rates we have our x and y axis points for plotting.
+
+Remember they are:</code></pre>
+<p>x=  FP rate
+y = TP rate</p>
+<p>~~~</p>
+<p>The figures you should have for these rates are as follows:</p>
+<p><img src="./img/10.png" alt=""></p>
+<p>For the threshold where the score is greater than or equal to 1 there are three outcomes, two positive outcomes and a negative outcome. The negative outcome is incorrectly classified as positive, therefore there is one false positive, and the two actual positive outcomes are correctly classified, therefore there are two true positives.</p>
+<p>The false positive rate is  1 divided by 4 = .25
+The true positive rate is 2 divided by 3 = .67</p>
+<p>This ordered pair .25, .67 is represented on our ROC curve. If we start at 0,0 and we plot the ordered pairs 0,.3 then 0, .67, then .25, .67 and so on until we get to 1,1 we have marked the points for four rectangles on chart 1. Notice that either the x or y axis change between two points, never both.</p>
+<p>As you enter these values you will see the two charts will be represented below. This type of chart is a scatter chart. The data set used to construct the chart is G18:H26</p>
+<p><img src="./img/11.png" alt=""></p>
+<p>Next we sum the area of these rectangles to get an idea of the overall strength of our classification model. So we take the width of each times its height so the first rectangle has a width of .25 and a height of .67. The second rectangle has a width of .75 (1-.25) and height of 1. These areas are equal to 0.917.</p>
+<p>Each threshold has it&#39;s own confusion matrix in the spreadsheet. When you take a look at each confusion matrix we can see at event 0 everything is classified as negative. Once we go to event 1 where the threshold is greater than or equal to 3 then we have essentially moved the score of 3 (circled in blue) to be a positive classification (blue arrow). This is the case each time we move up a threshold, the score 2 (circled in red) moves to be a positive classification for threshold greater than or equal to 2. For each change in threshold one of the positive classification items will change. When we moved the score of 3 to be positive then the positive outcome increases to 1, when we move the score of 2 it increases to 2 and when we move the score of 1 then the false positive increases to 1 (all circled in black).</p>
+<p><img src="./img/12.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <p>The <a href="./archives/Cancer-Diagnosis.xlsx">Cancer Diagnosis</a> spreadsheet works the same way as the bombers and seagulls scenario.
+It is designed to provide a realistic simulation of the cost-benefit assumptions that must be made to set the classification threshold for a medical diagnostic product.
+Download the spreadsheet and investigate the contents, below are details of what is contained in the file:</p>
+<ul>
+<li>The file has 10,0000 rows of data.</li>
+<li>The ranked scores in column A are the level of a certain protein as measured by the diagnostic test.</li>
+<li>The true condition for each protein level is given in column C [Cancer=1, No Cancer=0].</li>
+<li>A threshold for a positive classification can be set between any two protein levels.</li>
+<li>For each threshold in column A, the resulting number of false negative classification errors is given in column H, and the false positive classification errors in column F.</li>
+</ul>
+<p>There are 100 correct cancer diagnosis out of the 10,000, resulting in 9900 correct no cancer diagnosis.
+If you look at row 19, protein value 18636.922. If the threshold is set to greater than this amount there would be 1 true positive diagnosis and 9 false positive diagnosis.
+This can also be read as saying at that threshold there would be for the sample, 9 false positives and 99 false negatives (only one true positive at that threshold out of the 100 total).</p>
+<p>This spreadsheet is designed to allow you to observe how changing cost inputs impacts both:</p>
+<ul>
+<li>the overall costs of using a cancer diagnostic test at each threshold, and</li>
+<li>what threshold should be chosen as optimal thus minimizing costs.</li>
+</ul>
+<p>Cell G3  contains the cost per False Negative (missing a cancer case) and cell H3 for the cost per False positive (a false alarm).
+Total costs as each threshold are given in column K.</p>
+<p>The minimum total cost, and minimum cost per event (per diagnosed classification reported), are displayed in cells K4 , and L4,</p>
+<p>The optimum threshold - the lowest protein level score that should be classified positive is displayed in cell M4. The formula finds the threshold with the lowest overall cost (in false positives and false negatives). In this case it is Row 2103 where at the default costs of €50,000 per false negative error and €500 per false positive error, the minimum cost per event is €119.90, and the optimal threshold for positive classification is 16551.930.</p>
+<h2>Answer the following questions:</h2>
+<p>Change the cost per FN to $20,000 and change the cost per FP to $1,000</p>
+<ul>
+<li>What is the new minimum cost per event/cost per test (rounded to the nearest dollar)?</li>
+<li>What is the lowest level of protein that should be classified &quot;Positive&quot; to achieve the minimum cost per test at the new cost per error given the above?</li>
+<li>Can a change in classification threshold change a diagnostic test&#39;s True Positive Rate? Use logic - no need to calculate any numbers.</li>
+<li>&quot;Condition Incidence&quot; is the portion of a population that has the condition being studied. Can a change in the threshold change the condition incidence? Use logic.</li>
+<li>Does the change in threshold change the test&#39;s Area under the ROC curve? Use logic.</li>
+</ul>
+<h2>AOC</h2>
+<p>Calculate the area under the curve for the soldier data</p>
+<p><a href="./archives/Forecasting-Soldier-Performance-single-ca.xlsx">Soldier Data</a></p>
+<ul>
+<li><p>You will need to calculate the true positives and false positives for each threshold in the 12 instances of height data.</p>
+</li>
+<li><p>Then calculation the true positive rate (y) and false positive rate (x) at each threshold for the height.</p>
+</li>
+<li><p>Then plot the x and y pairs (false positive rate, true positive rate) on a scatter chart.</p>
+</li>
+<li><p>Identify each rectangle on the chart and calculate the area of each rectangle by multiplying height by weight to find out the AUC. Based on the result is this a good model?</p>
+</li>
+</ul>
+<p>This work is to be submitted to Moodle and is worth 10% of your continuous assessment marks. The work is to be done individually.</p>
+<ul>
+<li>AUC.xlsx</li>
+<li>Cancer-Diagnosis.xlsx</li>
+<li>Forecasting-Solider-Performance-single-ca.xlsx</li>
+</ul>
 
           </div>
         
