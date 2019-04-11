@@ -396,6 +396,118 @@
   "los": [
    ]
 
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Clustering ",
+  "img" : "clustering.png",
+  "videoid" : "none",
+  "objectives" : "<p>Discovering natural groupings in a dataset</p>",
+  "folder" : "talk-2",
+  "link" : "clustering.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-08",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Continuous Assessment conducting regression analysis</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-09",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Continuous Assessment conducting cluster analysis</p>",
+  "folder" : "book-a",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Introduction to the use of classification for prediction ",
+  "img" : "talk-1-classification/classification.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "topic-06-Classification",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Classification ",
+  "img" : "classification.png",
+  "videoid" : "none",
+  "objectives" : "<p>Machine learning teaches computers to do what comes naturally to humans: learn from experience.</p>",
+  "folder" : "talk-1-classification",
+  "link" : "classification.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "classification",
+  "img" : "classification.png",
+  "videoid" : "none",
+  "objectives" : "",
+  "folder" : "talk-2-classification",
+  "link" : "classification.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-10",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>More Excel - binary classification </p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
     } 
    ]
 
